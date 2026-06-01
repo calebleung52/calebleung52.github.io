@@ -272,6 +272,14 @@
             .hero-text h1 { font-size: 2.8rem; }
             .hero-image-wrapper { height: 300px; }
             nav ul { display: none; }
+.skill-card {
+    transition: transform 0.3s cubic-bezier(0.25, 0.1, 0.25, 1);
+    will-change: transform;
+}
+
+.skill-card:hover {
+    transform: scale(1.03);
+}
         }
     </style>
 </head>
