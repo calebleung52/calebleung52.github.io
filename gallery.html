@@ -9,7 +9,13 @@
         .gallery-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 1.5rem; }
         .gallery-item img { width: 100%; border-radius: 12px; transition: transform 0.3s; }
         .gallery-item img:hover { transform: scale(1.05); }
-        
+        .gallery-item img {
+            width: 100%;
+            height: 300px; /* 固定高度 */
+            object-fit: cover; /* 呢個係重點：自動剪裁相片以填滿，唔會變形 */
+            border-radius: 12px;
+            transition: transform 0.3s;
+        }
         /* 懸浮 OneDrive 按鈕 */
         .float-btn {
             position: fixed;
