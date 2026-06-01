@@ -298,28 +298,52 @@
     </section>
 
     <!-- Projects Section -->
+   收到！你俾我睇嘅呢段 HTML，入面個 .project-image 仲係舊版嘅 <div>🎵</div>，怪唔知得佢冇位置俾你顯示真相。
+
+既然你想一步到位，擁有「有自己擺嘅 highlight 相、有字、有藍色膠囊下載掣」嘅完美外觀，我直接幫你將呢段 HTML 重寫。
+
+🛠️ 全新重寫版代碼（直接成嚿取代你上面嗰段）
+請喺你嘅 index.html 入面，將由 <section id="projects"> 開始一直到最底 </html> 嘅所有內容刪除，然後換成下面呢段：
+
+HTML
     <section id="projects">
         <div class="container">
             <h2>My Projects</h2>
             <div class="projects-grid">
                 
-                <!-- 項目 1 -->
                 <div class="project-card">
-                    <div class="project-image">🎵</div>
+                    <div class="project-image-box">
+                        <img src="taiko.jpg" alt="Taiko Chart Preview" onerror="this.style.display='none';">
+                        <span class="fallback-emoji">🎵</span>
+                    </div>
                     <div class="project-content">
-                        <h3>Project One</h3>
-                        <p>Description of your high-quality project or asset file.</p>
-                        <a href="YOUR_FILE_URL_HERE" download class="download-btn">Download File 📥</a>
+                        <h3>STAR T RAIN (Oni) Custom Chart</h3>
+                        <p>High-quality .tja chart for Taiko no Tatsujin with precise rhythm matching and alignment.</p>
+                        <a href="star_train.zip" download class="download-btn">Download Chart 📥</a>
                     </div>
                 </div>
 
-                <!-- 項目 2 -->
                 <div class="project-card">
-                    <div class="project-image">🎮</div>
+                    <div class="project-image-box">
+                        <img src="racing.jpg" alt="Cyber Formula Livery" onerror="this.style.display='none';">
+                        <span class="fallback-emoji">🏎️</span>
+                    </div>
                     <div class="project-content">
-                        <h3>Project Two</h3>
-                        <p>Description of your custom content or simulated maps.</p>
-                        <a href="YOUR_FILE_URL_HERE" download class="download-btn">Download File 📥</a>
+                        <h3>Cyber Formula Livery Pack</h3>
+                        <p>Custom racing team replica textures and sponsor decals for 3D sports car models.</p>
+                        <a href="cyber_formula_livery.zip" download class="download-btn">Download Livery 📥</a>
+                    </div>
+                </div>
+
+                <div class="project-card">
+                    <div class="project-image-box">
+                        <img src="train.jpg" alt="Train Sim Modification" onerror="this.style.display='none';">
+                        <span class="fallback-emoji">🚊</span>
+                    </div>
+                    <div class="project-content">
+                        <h3>OpenBVE Train Data Fix</h3>
+                        <p>Optimized train.dat infrastructure configurations and route properties.</p>
+                        <a href="train_data_fix.zip" download class="download-btn">Download Route 📥</a>
                     </div>
                 </div>
 
