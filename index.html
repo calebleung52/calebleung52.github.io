@@ -4,8 +4,10 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>My Portfolio - Caleb</title>
-    <style>
- /* 全域重設 */
+   html {
+    scroll-behavior: smooth;
+}
+
 * {
     margin: 0;
     padding: 0;
@@ -39,17 +41,12 @@ nav {
     padding: 1rem 2rem;
 }
 
-/* --- 技能卡片動畫效果 --- */
+/* 技能卡片 Hover 特效 */
 .skill-card {
-    /* 呢個係卡片嘅基礎設定，確保佢有過場效果 */
     transition: transform 0.3s cubic-bezier(0.25, 0.1, 0.25, 1);
     will-change: transform;
-    background: #161617;
-    padding: 20px;
-    border-radius: 12px;
 }
 
-/* 當滑鼠移過 (Hover) 嗰陣放大 3% */
 .skill-card:hover {
     transform: scale(1.03);
 }
