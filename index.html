@@ -5,7 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>My Portfolio - Caleb</title>
     <style>
-        /* Apple 核心極簡 Dark Mode 樣式 */
+        /* 全域重設 */
         * {
             margin: 0;
             padding: 0;
@@ -13,19 +13,17 @@
         }
 
         body {
-            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
             line-height: 1.6;
             color: #f5f5f7;
-            background-color: #000000;
+            background-color: #000000; /* 迫使背景變型格全黑 */
         }
 
-        /* Apple 標誌性磨砂玻璃導覽列 */
+        /* 導覽列 */
         header {
             background: rgba(22, 22, 23, 0.8);
             backdrop-filter: blur(20px);
             -webkit-backdrop-filter: blur(20px);
-            color: #f5f5f7;
-            padding: 1rem 0;
             position: sticky;
             top: 0;
             z-index: 100;
@@ -38,13 +36,13 @@
             display: flex;
             justify-content: space-between;
             align-items: center;
-            padding: 0 2rem;
+            padding: 1rem 2rem;
         }
 
         nav .logo {
             font-size: 1.3rem;
             font-weight: 600;
-            letter-spacing: -0.02em;
+            color: #ffffff;
         }
 
         nav ul {
@@ -57,24 +55,33 @@
             color: #a1a1a6;
             text-decoration: none;
             font-size: 0.9rem;
-            transition: color 0.3s ease;
+            transition: color 0.3s;
         }
 
         nav a:hover {
             color: #ffffff;
         }
 
-        /* Front Page 震撼視覺區域 */
-        .hero {
-            background-color: #121212;
-            padding: 6rem 2rem;
-            text-align: center;
+        /* 🚀 Front Page (Hero Section) 雙欄排版 */
+        .hero-container {
+            background-color: #0d0d0e;
+            padding: 5rem 2rem;
             border-bottom: 1px solid rgba(255, 255, 255, 0.05);
-        } 
+        }
 
-        .hero h1 {
+        .hero-content {
+            max-width: 1200px;
+            margin: 0 auto;
+            display: grid;
+            grid-template-columns: 1fr 1fr; /* 左邊文字，右邊幅相 */
+            gap: 3rem;
+            align-items: center;
+        }
+
+        .hero-text h1 {
             font-size: 3.5rem;
             font-weight: 700;
+            line-height: 1.15;
             margin-bottom: 1rem;
             letter-spacing: -0.03em;
             background: linear-gradient(180deg, #ffffff 0%, #a1a1a6 100%);
@@ -82,28 +89,45 @@
             -webkit-text-fill-color: transparent;
         }
 
-        .hero p {
-            font-size: 1.2rem;
-            margin-bottom: 2.5rem;
+        .hero-text p {
+            font-size: 1.25rem;
             color: #86868b;
+            margin-bottom: 2rem;
         }
 
         .cta-button {
             display: inline-block;
-            background-color: #ffffff;
-            color: #000000;
+            background-color: #0071e3;
+            color: #ffffff;
             padding: 0.8rem 2rem;
             border-radius: 980px;
             text-decoration: none;
             font-weight: 500;
-            transition: opacity 0.2s ease;
+            transition: background-color 0.2s;
         }
 
         .cta-button:hover {
-            opacity: 0.85;
+            background-color: #0077ed;
         }
 
-        /* 內容容器 */
+        /* 📸 Highlight 相片區 */
+        .hero-image-wrapper {
+            width: 100%;
+            height: 380px;
+            border-radius: 20px;
+            overflow: hidden;
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            background: #1c1c1e; /* 未有相之前顯示灰色 */
+            box-shadow: 0 20px 40px rgba(0, 0, 0, 0.5);
+        }
+
+        .hero-image-wrapper img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover; /* 自動裁剪填充，唔會變形 */
+        }
+
+        /* 內容區塊通用 */
         .container {
             max-width: 1200px;
             margin: 0 auto;
@@ -112,7 +136,6 @@
 
         section {
             padding: 5rem 0;
-            border-bottom: 1px solid rgba(255, 255, 255, 0.05);
         }
 
         section h2 {
@@ -120,24 +143,23 @@
             font-weight: 600;
             margin-bottom: 2.5rem;
             text-align: center;
-            letter-spacing: -0.02em;
             color: #ffffff;
         }
 
-        /* About Section */
+        /* About */
         .about-content {
             max-width: 800px;
             margin: 0 auto;
             text-align: center;
             font-size: 1.15rem;
-            line-height: 1.8;
             color: #a1a1a6;
         }
 
-        /* Skills Section */
+        /* Skills */
+        #skills { background-color: #050505; }
         .skills-grid {
             display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
             gap: 2rem;
         }
 
@@ -147,25 +169,13 @@
             border-radius: 14px;
             text-align: center;
             border: 1px solid rgba(255, 255, 255, 0.05);
-            transition: transform 0.3s ease;
         }
 
-        .skill-card:hover {
-            transform: translateY(-5px);
-        }
+        .skill-card h3 { color: #ffffff; margin-bottom: 0.8rem; }
+        .skill-card p { color: #86868b; font-size: 0.95rem; }
 
-        .skill-card h3 {
-            color: #ffffff;
-            margin-bottom: 0.8rem;
-            font-size: 1.2rem;
-        }
-
-        .skill-card p {
-            color: #86868b;
-            font-size: 0.95rem;
-        }
-
-        /* Projects Section */
+        /* Projects & Download */
+        #projects { background-color: #000000; }
         .projects-grid {
             display: grid;
             grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
@@ -177,16 +187,11 @@
             border-radius: 18px;
             overflow: hidden;
             border: 1px solid rgba(255, 255, 255, 0.05);
-            transition: transform 0.3s ease;
-        }
-
-        .project-card:hover {
-            transform: translateY(-5px);
         }
 
         .project-image {
             width: 100%;
-            height: 200px;
+            height: 180px;
             background: #2c2c2e;
             display: flex;
             align-items: center;
@@ -194,100 +199,46 @@
             font-size: 3rem;
         }
 
-        .project-content {
-            padding: 1.5rem;
-        }
+        .project-content { padding: 1.5rem; }
+        .project-content h3 { color: #ffffff; margin-bottom: 0.5rem; }
+        .project-content p { color: #86868b; margin-bottom: 1.5rem; font-size: 0.95rem; }
 
-        .project-content h3 {
-            color: #ffffff;
-            margin-bottom: 0.5rem;
-            font-size: 1.3rem;
-        }
-
-        .project-content p {
-            color: #86868b;
-            margin-bottom: 1.5rem;
-            font-size: 0.95rem;
-        }
-
-        /* Apple 膠囊型下載按鈕 */
         .download-btn {
             display: inline-block;
-            background-color: #0071e3;
+            background-color: #2c2c2e;
             color: #ffffff;
             text-decoration: none;
             padding: 0.5rem 1.2rem;
             border-radius: 980px;
             font-size: 0.85rem;
-            font-weight: 500;
-            transition: background-color 0.2s ease;
+            transition: background-color 0.2s;
         }
 
-        .download-btn:hover {
-            background-color: #0077ed;
-        }
-
-        /* Contact Section */
-        .contact-content {
-            text-align: center;
-            max-width: 600px;
-            margin: 0 auto;
-            color: #86868b;
-        }
-
-        .contact-content strong {
-            color: #ffffff;
-        }
-
-        .social-links {
-            display: flex;
-            justify-content: center;
-            gap: 1.5rem;
-            margin-top: 2rem;
-        }
-
-        .social-links a {
-            display: inline-block;
-            width: 45px;
-            height: 45px;
-            background-color: #1c1c1e;
-            color: #ffffff;
-            border-radius: 50%;
-            text-align: center;
-            line-height: 45px;
-            text-decoration: none;
-            border: 1px solid rgba(255, 255, 255, 0.05);
-            transition: background-color 0.3s ease;
-        }
-
-        .social-links a:hover {
-            background-color: #2c2c2e;
-        }
+        .download-btn:hover { background-color: #3a3a3c; }
 
         /* Footer */
         footer {
-            background-color: #000000;
-            color: #86868b;
             text-align: center;
-            padding: 2.5rem;
+            padding: 3rem;
+            color: #86868b;
             font-size: 0.85rem;
             border-top: 1px solid rgba(255, 255, 255, 0.05);
         }
 
-        /* Responsive */
+        /* 響應式排版 */
         @media (max-width: 768px) {
-            nav ul {
-                display: none; /* 隱藏行動端複雜選單保持乾淨 */
+            .hero-content {
+                grid-template-columns: 1fr;
+                text-align: center;
             }
-
-            .hero h1 {
-                font-size: 2.3rem;
-            }
+            .hero-text h1 { font-size: 2.5rem; }
+            nav ul { display: none; }
         }
     </style>
 </head>
 <body>
-    <!-- Navigation -->
+
+    <!-- 導覽列 -->
     <header>
         <nav>
             <div class="logo">Caleb</div>
@@ -295,26 +246,32 @@
                 <li><a href="#about">About</a></li>
                 <li><a href="#skills">Skills</a></li>
                 <li><a href="#projects">Projects</a></li>
-                <li><a href="#contact">Contact</a></li>
             </ul>
         </nav>
     </header>
 
-    <!-- Hero Section -->
-    <section class="hero">
-        <h1>Welcome to My Portfolio</h1>
-        <p>Digital Creator | Technology Enthusiast</p>
-        <a href="#projects" class="cta-button">View My Work</a>
-    </section>
+    <!-- 🚀 Front Page 震撼視覺區（已含相片） -->
+    <div class="hero-container">
+        <div class="hero-content">
+            <div class="hero-text">
+                <h1>Welcome to<br>My Portfolio</h1>
+                <p>Digital Creator | Technology Enthusiast</p>
+                <a href="#projects" class="cta-button">View My Work</a>
+            </div>
+            <!-- 📸 右側 Highlight 靚相位置 -->
+            <div class="hero-image-wrapper">
+                <!-- 💡 將下面 HIGHLIGHT_IMAGE_URL 換成你上傳去 GitHub 嘅相片路徑 -->
+                <img src="HIGHLIGHT_IMAGE_URL" alt="My Highlight Work">
+            </div>
+        </div>
+    </div>
 
     <!-- About Section -->
     <section id="about">
         <div class="container">
             <h2>About Me</h2>
             <div class="about-content">
-                <p>
-                   Hi! I'm Caleb. I am a Grade 9 student from Vancouver & born from Hong Kong. I love digital creation, technical development, and bringing my ideas to life.
-                </p>
+                <p>Hi! I'm Caleb. I am a Grade 9 student from Vancouver & born from Hong Kong. I love digital creation, technical development, and bringing my ideas to life.</p>
             </div>
         </div>
     </section>
@@ -325,20 +282,16 @@
             <h2>My Skills</h2>
             <div class="skills-grid">
                 <div class="skill-card">
-                    <h3>Web Development</h3>
-                    <p>HTML, CSS, JavaScript, React</p>
+                    <h3>Technical Creation</h3>
+                    <p>Asset Modification, Optimization, Configs</p>
                 </div>
                 <div class="skill-card">
-                    <h3>Backend</h3>
-                    <p>Node.js, Python, SQL</p>
+                    <h3>Design & Layout</h3>
+                    <p>UI/UX, Responsive CSS, Graphic Elements</p>
                 </div>
                 <div class="skill-card">
-                    <h3>Tools & Platforms</h3>
-                    <p>Git, GitHub, VS Code, Linux</p>
-                </div>
-                <div class="skill-card">
-                    <h3>UI/UX Design</h3>
-                    <p>Responsive Design, Figma</p>
+                    <h3>Tools</h3>
+                    <p>Git, GitHub, VS Code</p>
                 </div>
             </div>
         </div>
@@ -355,30 +308,17 @@
                     <div class="project-image">🎵</div>
                     <div class="project-content">
                         <h3>Project One</h3>
-                        <p>A responsive web application built with modern technologies.</p>
-                        <!-- 💡 填入你的下載連結 -->
+                        <p>Description of your high-quality project or asset file.</p>
                         <a href="YOUR_FILE_URL_HERE" download class="download-btn">Download File 📥</a>
                     </div>
                 </div>
 
                 <!-- 項目 2 -->
                 <div class="project-card">
-                    <div class="project-image">🏎️</div>
+                    <div class="project-image">🎮</div>
                     <div class="project-content">
                         <h3>Project Two</h3>
-                        <p>Creative design and development showcase with interactive features.</p>
-                        <!-- 💡 填入你的下載連結 -->
-                        <a href="YOUR_FILE_URL_HERE" download class="download-btn">Download File 📥</a>
-                    </div>
-                </div>
-
-                <!-- 項目 3 -->
-                <div class="project-card">
-                    <div class="project-image">🚊</div>
-                    <div class="project-content">
-                        <h3>Project Three</h3>
-                        <p>Full-stack application demonstrating backend and frontend integration.</p>
-                        <!-- 💡 填入你的下載連結 -->
+                        <p>Description of your custom content or simulated maps.</p>
                         <a href="YOUR_FILE_URL_HERE" download class="download-btn">Download File 📥</a>
                     </div>
                 </div>
@@ -387,25 +327,9 @@
         </div>
     </section>
 
-    <!-- Contact Section -->
-    <section id="contact">
-        <div class="container">
-            <h2>Get In Touch</h2>
-            <div class="contact-content">
-                <p>Feel free to reach out! I'm always interested in hearing about new projects and opportunities.</p>
-                <p style="margin-top: 1rem;"><strong>Email:</strong> caleb@example.com</p>
-                <div class="social-links">
-                    <a href="#" title="LinkedIn">in</a>
-                    <a href="#" title="GitHub">⚙️</a>
-                    <a href="#" title="Twitter">𝕏</a>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <!-- Footer -->
     <footer>
         <p>&copy; 2026 Caleb's Portfolio. All rights reserved.</p>
     </footer>
+
 </body>
 </html>
