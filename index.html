@@ -158,10 +158,12 @@
 
         /* Skills Section */
         #skills { background-color: #050505; }
+        
         .skills-grid {
             display: grid;
             grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
             gap: 2rem;
+            padding: 2rem; /* 增加啲空間俾放大後唔會貼邊 */
         }
 
         .skill-card {
@@ -170,6 +172,13 @@
             border-radius: 18px;
             text-align: center;
             border: 1px solid rgba(255, 255, 255, 0.05);
+            /* 關鍵特效：一定要寫喺呢度 */
+            transition: transform 0.3s cubic-bezier(0.25, 0.1, 0.25, 1);
+            cursor: default; /* 令滑鼠變返普通箭咀 */
+        }
+
+        .skill-card:hover {
+            transform: scale(1.03); /* 放大 3% */
         }
 
         .skill-card h3 { color: #ffffff; margin-bottom: 1rem; font-size: 1.3rem; }
