@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>My Gallery - Caleb</title>
+    <style>
+        body { background: #000; color: #fff; padding: 2rem; font-family: sans-serif; }
+        .gallery-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 1.5rem; }
+        .gallery-item img { width: 100%; border-radius: 12px; transition: transform 0.3s; }
+        .gallery-item img:hover { transform: scale(1.05); }
+        .back-btn { display: inline-block; margin-bottom: 2rem; color: #0071e3; text-decoration: none; }
+    </style>
+</head>
+<body>
+    <a href="index.html" class="back-btn">← Back to Portfolio</a>
+    <h1>My Gallery</h1>
+    <div class="gallery-grid">
+        <div class="gallery-item"><img src="photo1.jpg" alt="Photo 1"></div>
+        <div class="gallery-item"><img src="photo2.jpg" alt="Photo 2"></div>
+    </div>
+</body>
+</html>
