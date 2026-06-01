@@ -4,19 +4,38 @@
     <meta charset="UTF-8">
     <title>My Gallery - Caleb</title>
     <style>
-        body { background: #000; color: #fff; padding: 2rem; font-family: sans-serif; }
+        body { background: #000; color: #fff; margin: 0; padding: 2rem; font-family: sans-serif; }
+        .back-btn { display: inline-block; margin-bottom: 2rem; color: #0071e3; text-decoration: none; }
         .gallery-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 1.5rem; }
         .gallery-item img { width: 100%; border-radius: 12px; transition: transform 0.3s; }
         .gallery-item img:hover { transform: scale(1.05); }
-        .back-btn { display: inline-block; margin-bottom: 2rem; color: #0071e3; text-decoration: none; }
+        
+        /* 懸浮 OneDrive 按鈕 */
+        .float-btn {
+            position: fixed;
+            bottom: 30px;
+            right: 30px;
+            background: #0071e3;
+            color: white;
+            padding: 15px 25px;
+            border-radius: 50px;
+            text-decoration: none;
+            font-weight: bold;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.3);
+            transition: transform 0.3s;
+        }
+        .float-btn:hover { transform: scale(1.1); }
     </style>
 </head>
 <body>
     <a href="index.html" class="back-btn">← Back to Portfolio</a>
-    <h1>My Gallery</h1>
+    <h1>Peak Photography</h1>
     <div class="gallery-grid">
-        <div class="gallery-item"><img src="photo1.jpg" alt="Photo 1"></div>
-        <div class="gallery-item"><img src="photo2.jpg" alt="Photo 2"></div>
+        <div class="gallery-item"><img src="peak1.jpg" alt="Peak Photo 1"></div>
+        <div class="gallery-item"><img src="peak2.jpg" alt="Peak Photo 2"></div>
+        <div class="gallery-item"><img src="peak3.jpg" alt="Peak Photo 3"></div>
     </div>
+
+    <a href="你嘅_OneDrive_連結" target="_blank" class="float-btn">View All Photos 📥</a>
 </body>
 </html>
