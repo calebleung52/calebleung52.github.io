@@ -5,6 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>My Portfolio - Caleb</title>
     <style>
+        /* Apple 核心極簡 Dark Mode 樣式 */
         * {
             margin: 0;
             padding: 0;
@@ -12,15 +13,15 @@
         }
 
         body {
-            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
             line-height: 1.6;
-            color: #333;
-            background-color: #f4f4f4;
+            color: #f5f5f7;
+            background-color: #000000;
         }
 
-        /* Header & Navigation */
+        /* Apple 標誌性磨砂玻璃導覽列 */
         header {
-       background: rgba(22, 22, 23, 0.8);
+            background: rgba(22, 22, 23, 0.8);
             backdrop-filter: blur(20px);
             -webkit-backdrop-filter: blur(20px);
             color: #f5f5f7;
@@ -29,6 +30,7 @@
             top: 0;
             z-index: 100;
             border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+        }
 
         nav {
             max-width: 1200px;
@@ -40,8 +42,9 @@
         }
 
         nav .logo {
-            font-size: 1.5rem;
-            font-weight: bold;
+            font-size: 1.3rem;
+            font-weight: 600;
+            letter-spacing: -0.02em;
         }
 
         nav ul {
@@ -51,143 +54,129 @@
         }
 
         nav a {
-            color: white;
+            color: #a1a1a6;
             text-decoration: none;
-            transition: opacity 0.3s ease;
+            font-size: 0.9rem;
+            transition: color 0.3s ease;
         }
 
         nav a:hover {
-            opacity: 0.8;
+            color: #ffffff;
         }
 
-        /* Hero Section */
+        /* Front Page 震撼視覺區域 */
         .hero {
-              background: #121212; color: #ffffff;
-
-            color: white;
-
-            padding: 1rem 0;
-
-            position: sticky;
-
-            top: 0;
-
-            z-index: 100;
-
-            box-shadow: 0 2px 5px rgba(0,0,0,0.1);
-
+            background-color: #121212;
+            padding: 6rem 2rem;
+            text-align: center;
+            border-bottom: 1px solid rgba(255, 255, 255, 0.05);
         } 
 
-
-
         .hero h1 {
-            font-size: 3rem;
+            font-size: 3.5rem;
+            font-weight: 700;
             margin-bottom: 1rem;
+            letter-spacing: -0.03em;
+            background: linear-gradient(180deg, #ffffff 0%, #a1a1a6 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
         }
 
         .hero p {
             font-size: 1.2rem;
-            margin-bottom: 2rem;
-            opacity: 0.9;
+            margin-bottom: 2.5rem;
+            color: #86868b;
         }
 
         .cta-button {
             display: inline-block;
-            background-color: white;
-            color: #667eea;
+            background-color: #ffffff;
+            color: #000000;
             padding: 0.8rem 2rem;
-            border-radius: 50px;
+            border-radius: 980px;
             text-decoration: none;
-            font-weight: bold;
-            transition: transform 0.3s ease, box-shadow 0.3s ease;
-            border: none;
-            cursor: pointer;
+            font-weight: 500;
+            transition: opacity 0.2s ease;
         }
 
         .cta-button:hover {
-            transform: translateY(-3px);
-            box-shadow: 0 10px 20px rgba(0,0,0,0.2);
+            opacity: 0.85;
         }
 
-        /* Main Container */
+        /* 內容容器 */
         .container {
             max-width: 1200px;
             margin: 0 auto;
             padding: 0 2rem;
         }
 
-        /* About Section */
         section {
-            padding: 4rem 0;
+            padding: 5rem 0;
+            border-bottom: 1px solid rgba(255, 255, 255, 0.05);
         }
 
         section h2 {
-            font-size: 2rem;
-            margin-bottom: 2rem;
+            font-size: 2.2rem;
+            font-weight: 600;
+            margin-bottom: 2.5rem;
             text-align: center;
-            color: #667eea;
+            letter-spacing: -0.02em;
+            color: #ffffff;
         }
 
-        #about {
-            background-color: white;
-        }
-
+        /* About Section */
         .about-content {
             max-width: 800px;
             margin: 0 auto;
             text-align: center;
+            font-size: 1.15rem;
             line-height: 1.8;
-            color: #555;
+            color: #a1a1a6;
         }
 
         /* Skills Section */
-        #skills {
-            background-color: white;
-        }
-
         .skills-grid {
             display: grid;
             grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
             gap: 2rem;
-            margin-top: 2rem;
         }
 
         .skill-card {
-            background-color: #f9f9f9;
+            background-color: #1c1c1e;
             padding: 2rem;
-            border-radius: 8px;
+            border-radius: 14px;
             text-align: center;
-            transition: transform 0.3s ease, box-shadow 0.3s ease;
-            border-left: 4px solid #667eea;
+            border: 1px solid rgba(255, 255, 255, 0.05);
+            transition: transform 0.3s ease;
         }
 
         .skill-card:hover {
             transform: translateY(-5px);
-            box-shadow: 0 5px 15px rgba(0,0,0,0.1);
         }
 
         .skill-card h3 {
-            color: #667eea;
-            margin-bottom: 1rem;
+            color: #ffffff;
+            margin-bottom: 0.8rem;
+            font-size: 1.2rem;
+        }
+
+        .skill-card p {
+            color: #86868b;
+            font-size: 0.95rem;
         }
 
         /* Projects Section */
-        #projects {
-            background-color: #f4f4f4;
-        }
-
         .projects-grid {
             display: grid;
             grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
             gap: 2rem;
-            margin-top: 2rem;
         }
 
         .project-card {
-            background-color: white;
-            border-radius: 8px;
+            background-color: #1c1c1e;
+            border-radius: 18px;
             overflow: hidden;
-            box-shadow: 0 3px 10px rgba(0,0,0,0.1);
+            border: 1px solid rgba(255, 255, 255, 0.05);
             transition: transform 0.3s ease;
         }
 
@@ -198,11 +187,10 @@
         .project-image {
             width: 100%;
             height: 200px;
-            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            background: #2c2c2e;
             display: flex;
             align-items: center;
             justify-content: center;
-            color: white;
             font-size: 3rem;
         }
 
@@ -211,82 +199,89 @@
         }
 
         .project-content h3 {
-            color: #667eea;
+            color: #ffffff;
             margin-bottom: 0.5rem;
+            font-size: 1.3rem;
         }
 
         .project-content p {
-            color: #666;
-            margin-bottom: 1rem;
+            color: #86868b;
+            margin-bottom: 1.5rem;
+            font-size: 0.95rem;
         }
 
-        .project-link {
-            color: #667eea;
+        /* Apple 膠囊型下載按鈕 */
+        .download-btn {
+            display: inline-block;
+            background-color: #0071e3;
+            color: #ffffff;
             text-decoration: none;
-            font-weight: bold;
+            padding: 0.5rem 1.2rem;
+            border-radius: 980px;
+            font-size: 0.85rem;
+            font-weight: 500;
+            transition: background-color 0.2s ease;
         }
 
-        .project-link:hover {
-            text-decoration: underline;
+        .download-btn:hover {
+            background-color: #0077ed;
         }
 
         /* Contact Section */
-        #contact {
-            background-color: white;
-        }
-
         .contact-content {
             text-align: center;
             max-width: 600px;
             margin: 0 auto;
+            color: #86868b;
+        }
+
+        .contact-content strong {
+            color: #ffffff;
         }
 
         .social-links {
             display: flex;
             justify-content: center;
-            gap: 2rem;
+            gap: 1.5rem;
             margin-top: 2rem;
         }
 
         .social-links a {
             display: inline-block;
-            width: 50px;
-            height: 50px;
-            background-color: #667eea;
-            color: white;
+            width: 45px;
+            height: 45px;
+            background-color: #1c1c1e;
+            color: #ffffff;
             border-radius: 50%;
             text-align: center;
-            line-height: 50px;
+            line-height: 45px;
             text-decoration: none;
+            border: 1px solid rgba(255, 255, 255, 0.05);
             transition: background-color 0.3s ease;
-            font-size: 1.5rem;
         }
 
         .social-links a:hover {
-            background-color: #764ba2;
+            background-color: #2c2c2e;
         }
 
         /* Footer */
         footer {
-            background-color: #333;
-            color: white;
+            background-color: #000000;
+            color: #86868b;
             text-align: center;
-            padding: 2rem;
+            padding: 2.5rem;
+            font-size: 0.85rem;
+            border-top: 1px solid rgba(255, 255, 255, 0.05);
         }
 
         /* Responsive */
         @media (max-width: 768px) {
             nav ul {
-                flex-direction: column;
-                gap: 1rem;
+                display: none; /* 隱藏行動端複雜選單保持乾淨 */
             }
 
             .hero h1 {
-                font-size: 2rem;
-            }
-
-            section {
-                padding: 2rem 0;
+                font-size: 2.3rem;
             }
         }
     </style>
@@ -354,30 +349,40 @@
         <div class="container">
             <h2>My Projects</h2>
             <div class="projects-grid">
+                
+                <!-- 項目 1 -->
                 <div class="project-card">
-                    <div class="project-image">📱</div>
+                    <div class="project-image">🎵</div>
                     <div class="project-content">
                         <h3>Project One</h3>
                         <p>A responsive web application built with modern technologies.</p>
-                        <a href="#" class="project-link">View Project →</a>
+                        <!-- 💡 填入你的下載連結 -->
+                        <a href="YOUR_FILE_URL_HERE" download class="download-btn">Download File 📥</a>
                     </div>
                 </div>
+
+                <!-- 項目 2 -->
                 <div class="project-card">
-                    <div class="project-image">🎨</div>
+                    <div class="project-image">🏎️</div>
                     <div class="project-content">
                         <h3>Project Two</h3>
                         <p>Creative design and development showcase with interactive features.</p>
-                        <a href="#" class="project-link">View Project →</a>
+                        <!-- 💡 填入你的下載連結 -->
+                        <a href="YOUR_FILE_URL_HERE" download class="download-btn">Download File 📥</a>
                     </div>
                 </div>
+
+                <!-- 項目 3 -->
                 <div class="project-card">
-                    <div class="project-image">⚙️</div>
+                    <div class="project-image">🚊</div>
                     <div class="project-content">
                         <h3>Project Three</h3>
                         <p>Full-stack application demonstrating backend and frontend integration.</p>
-                        <a href="#" class="project-link">View Project →</a>
+                        <!-- 💡 填入你的下載連結 -->
+                        <a href="YOUR_FILE_URL_HERE" download class="download-btn">Download File 📥</a>
                     </div>
                 </div>
+
             </div>
         </div>
     </section>
@@ -388,7 +393,7 @@
             <h2>Get In Touch</h2>
             <div class="contact-content">
                 <p>Feel free to reach out! I'm always interested in hearing about new projects and opportunities.</p>
-                <p><strong>Email:</strong> caleb@example.com</p>
+                <p style="margin-top: 1rem;"><strong>Email:</strong> caleb@example.com</p>
                 <div class="social-links">
                     <a href="#" title="LinkedIn">in</a>
                     <a href="#" title="GitHub">⚙️</a>
