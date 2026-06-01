@@ -5,30 +5,54 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>My Portfolio - Caleb</title>
     <style>
-        /* 全域重設 */
-        * {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
-        }
+ /* 全域重設 */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
 
-        body {
-            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
-            line-height: 1.6;
-            color: #f5f5f7;
-            background-color: #000000; /* 型格全黑背景 */
-        }
+body {
+    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+    line-height: 1.6;
+    color: #f5f5f7;
+    background-color: #000000;
+}
 
-        /* 導覽列 */
-        header {
-            background: rgba(22, 22, 23, 0.8);
-            backdrop-filter: blur(20px);
-            -webkit-backdrop-filter: blur(20px);
-            position: sticky;
-            top: 0;
-            z-index: 100;
-            border-bottom: 1px solid rgba(255, 255, 255, 0.1);
-        }
+/* 導覽列 */
+header {
+    background: rgba(22, 22, 23, 0.8);
+    backdrop-filter: blur(20px);
+    -webkit-backdrop-filter: blur(20px);
+    position: sticky;
+    top: 0;
+    z-index: 100;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+nav {
+    max-width: 1200px;
+    margin: 0 auto;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 1rem 2rem;
+}
+
+/* --- 技能卡片動畫效果 --- */
+.skill-card {
+    /* 呢個係卡片嘅基礎設定，確保佢有過場效果 */
+    transition: transform 0.3s cubic-bezier(0.25, 0.1, 0.25, 1);
+    will-change: transform;
+    background: #161617;
+    padding: 20px;
+    border-radius: 12px;
+}
+
+/* 當滑鼠移過 (Hover) 嗰陣放大 3% */
+.skill-card:hover {
+    transform: scale(1.03);
+}
 
         nav {
             max-width: 1200px;
