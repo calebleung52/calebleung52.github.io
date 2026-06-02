@@ -2,50 +2,70 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <title>OpenBVE Projects - Caleb</title>
+    <title>OpenBVE Projects | Caleb Studio</title>
     <style>
-        /* 直接用返 index.html 個 style，或者寫 link 引用 */
-        body { font-family: -apple-system, sans-serif; background-color: #000; color: #f5f5f7; }
-        .container { max-width: 1200px; margin: 0 auto; padding: 2rem; }
-        .projects-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 2rem; margin-top: 2rem; }
-        .project-card { background: #1c1c1e; border-radius: 20px; padding: 2rem; border: 1px solid #333; }
-        .download-btn { display: inline-block; background: #0071e3; color: #fff; padding: 0.5rem 1.5rem; border-radius: 20px; text-decoration: none; margin-top: 1rem; }
+        /* Apple 簡約風格基礎 */
+        body { font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif; background-color: #000; color: #f5f5f7; margin: 0; min-height: 100vh; display: flex; flex-direction: column; }
+        .container { max-width: 1000px; margin: 0 auto; padding: 4rem 2rem; flex: 1; }
+        
+        /* JR 東日本風格 Header */
+        header { border-bottom: 3px solid #0066cc; padding-bottom: 1rem; margin-bottom: 2rem; }
+        .logo { font-size: 1.5rem; font-weight: 800; color: #0066cc; letter-spacing: -0.5px; }
+        
+        h1 { font-size: 2.5rem; margin-bottom: 2rem; }
+        h2 { border-left: 5px solid #0066cc; padding-left: 1rem; margin: 3rem 0 1.5rem 0; font-size: 1.5rem; }
+        
+        /* 網格與卡片 */
+        .projects-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 1.5rem; }
+        .project-card { background: #161617; border-radius: 12px; padding: 1.5rem; border: 1px solid #333; }
+        
+        /* 線路標籤 (JR 風格 Badge) */
+        .line-badge { background: #0066cc; color: white; padding: 0.2rem 0.6rem; border-radius: 4px; font-size: 0.75rem; font-weight: bold; margin-bottom: 0.8rem; display: inline-block; }
+        
+        /* 按鈕 */
+        .download-btn { display: inline-block; background: #fff; color: #000; padding: 0.6rem 1.2rem; border-radius: 8px; text-decoration: none; font-weight: 600; font-size: 0.9rem; margin-top: 1rem; transition: 0.2s; }
+        .download-btn:hover { background: #0066cc; color: #fff; }
+        
+        /* Footer */
+        footer { text-align: center; padding: 3rem; color: #555; font-size: 0.8rem; border-top: 1px solid #333; margin-top: auto; }
     </style>
 </head>
-    <footer style="text-align: center; padding: 4rem 2rem; color: #86868b; font-size: 0.9rem; border-top: 1px solid #333; margin-top: 4rem;">
-        <p>&copy; 2026 Caleb Studio. All rights reserved.</p>
-    </footer>
 <body>
+
+    <header>
+        <div class="container">
+            <div class="logo">Caleb Studio</div>
+        </div>
+    </header>
+
     <div class="container">
-        <a href="index.html" style="color:#0071e3; text-decoration:none;">← Back to Home</a>
+        <a href="index.html" style="color:#0066cc; text-decoration:none;">← Back to Home</a>
         <h1>OpenBVE Projects</h1>
 
-        <h2>🇭🇰 Hong Kong Projects</h2>
+        <h2>🇭🇰 Hong Kong Line</h2>
         <div class="projects-grid">
             <div class="project-card">
-                <h3>HK Routes</h3>
-                <p>All Hong Kong related routes.</p>
-                <a href="填入你的OneDrive連結" class="download-btn">Download 📥</a>
+                <span class="line-badge">MTR-ISL</span>
+                <h3>Island Line</h3>
+                <p style="color:#86868b; font-size: 0.9rem;">High-fidelity route simulation.</p>
+                <a href="填入OneDrive連結" class="download-btn">Download Data</a>
             </div>
         </div>
 
-        <h2 style="margin-top:3rem;">🇯🇵 Japan Projects</h2>
+        <h2>🇯🇵 Japan Line</h2>
         <div class="projects-grid">
             <div class="project-card">
-                <h3>Japan Routes</h3>
-                <p>All Japan related routes.</p>
-                <a href="填入你的OneDrive連結" class="download-btn">Download 📥</a>
-            </div>
-        </div>
-
-        <h2 style="margin-top:3rem;">🚆 Train Packs</h2>
-        <div class="projects-grid">
-            <div class="project-card">
-                <h3>Train Packs</h3>
-                <p>All custom train models.</p>
-                <a href="填入你的OneDrive連結" class="download-btn">Download 📥</a>
+                <span class="line-badge" style="background:#e60012;">JR-YMN</span>
+                <h3>Yamanote Line</h3>
+                <p style="color:#86868b; font-size: 0.9rem;">Complete route pack.</p>
+                <a href="填入OneDrive連結" class="download-btn">Download Data</a>
             </div>
         </div>
     </div>
+
+    <footer>
+        <p>&copy; 2026 Caleb Studio. All rights reserved.</p>
+    </footer>
+
 </body>
 </html>
