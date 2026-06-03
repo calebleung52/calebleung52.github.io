@@ -144,15 +144,21 @@
         .alert-box {
             background: rgba(255, 69, 58, 0.1);
             border-left: 3px solid #ff453a;
-            padding: 1.2rem;
-            margin: 1.5rem 0;
-            border-radius: 4px;
+            padding: 1.5rem;
+            margin: 2rem 0;
+            border-radius: 8px;
+        }
+
+        .alert-box h3 {
+            color: #ff453a;
+            margin-top: 0;
+            margin-bottom: 0.8rem;
         }
 
         .alert-box p {
-            color: #ff453a;
+            color: #ff807a;
             margin-bottom: 0;
-            font-weight: 500;
+            font-weight: 400;
         }
 
         /* Footer */
@@ -167,14 +173,15 @@
 </head>
 <body>
 
-   <header>
+<header>
     <nav>
         <a href="index.html#" class="logo">Caleb</a>
         <ul>
             <li><a href="index.html#about">About</a></li>
             <li><a href="index.html#skills">Skills</a></li>
             <li><a href="index.html#projects">Projects</a></li>
-            <li><a href="alliance.html">Alliance</a></li> <!-- ❗ 確保加埋呢行 -->
+            <li><a href="alliance.html">Alliance</a></li>
+            <li><a href="legal.html" style="color: #ffffff; font-weight: 500;">Legal</a></li>
         </ul>
     </nav>
 </header>
@@ -214,4 +221,37 @@
 
             <h3>3.2 Strategic Creative Alliance Notice</h3>
             <p>Caleb's Studio operates in a recognized, non-commercial creative alliance with <strong>Chase McDillan</strong> (accessible via <a href="https://chasemcdillan.github.io/" target="_blank" style="color: #2997ff; text-decoration: none;">https://chasemcdillan.github.io/</a>). While we mutually support each other's digital projects, portfolio showcases, and community assets, each studio remains a completely independent creative entity.</p>
-            <p>Caleb's Studio holds zero legal, financial, or technical liability for any software, files, external hyperlinks, data
+            <p>Caleb's Studio holds zero legal, financial, or technical liability for any software, files, external hyperlinks, or data managed, created, or distributed by these third-party platforms. Visitors access external links entirely at their own risk.</p>
+        </section>
+
+        <!-- 🚀 運用你寫嘅 CSS .alert-box 樣式，強化法律保護罩 -->
+        <section id="liability">
+            <div class="alert-box">
+                <h3>4. Disclaimer of Warranties & Limitation of Liability</h3>
+                <p>All Services, digital files, and downloads provided by Caleb's Studio are distributed on an "AS IS" and "AS AVAILABLE" basis, without warranties of any kind, either express or implied. Caleb's Studio explicitly disclaims any liability for technical malfunctions, software crashes, data loss, or physical hardware damage (including, but not limited to, 3D printer errors, device overheating, or game file corruption) resulting from the downloading, installation, or execution of our assets. You install and utilize these modifications entirely at your own discretion and risk.</p>
+            </div>
+        </section>
+
+        <section id="takedown">
+            <h2>5. Copyright Infringement & Takedown Procedure</h2>
+            <p>If you are a copyright owner, or an authorized agent thereof, and believe that any content hosted on Caleb's Studio infringes upon your intellectual property rights, you are encouraged to initiate contact directly. Upon receiving a valid, verified notice of infringement, Caleb's Studio will promptly review the claim and, if necessary, remove or disable access to the disputed material immediately without the need for formal litigation.</p>
+        </section>
+
+        <section id="privacy">
+            <h2>6. Privacy Policy</h2>
+            <p>Caleb's Studio respects the privacy of its visitors. This website is hosted utilizing static web services to showcase digital creative works.</p>
+            
+            <h3>6.1 Data Collection</h3>
+            <p>Caleb's Studio does not actively collect, store, or process personal identifiable information (PII) from its users. No account registration is required to view or utilize the Services.</p>
+
+            <h3>6.2 Third-Party Logging & Cookies</h3>
+            <p>Standard, non-identifying server logs (such as IP addresses, browser types, and access timestamps) and temporary analytic cookies may be automatically collected by our third-party hosting providers or external download portals (such as OneDrive) to ensure network security and site stability. Caleb's Studio does not possess direct access to, or ownership over, this infrastructure data.</p>
+        </section>
+    </main>
+
+    <footer>
+        <p>&copy; 2026 Caleb's Studio. All rights reserved.</p>
+    </footer>
+
+</body>
+</html>
