@@ -3,9 +3,8 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Legal Documents - Caleb's Studio</title>
+    <title>Legal Documents & Terms of Service - Caleb's Studio</title>
     <style>
-        /* 全域重設與平滑滾動 */
         html {
             scroll-behavior: smooth;
         }
@@ -18,12 +17,12 @@
 
         body {
             font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
-            line-height: 1.7;
+            line-height: 1.8;
             color: #f5f5f7;
             background-color: #000000;
         }
 
-        /* 導覽列 (同主頁完全同步) */
+        /* 導覽列 */
         header {
             background: rgba(22, 22, 23, 0.8);
             backdrop-filter: blur(20px);
@@ -67,32 +66,34 @@
             color: #ffffff;
         }
 
-        /* 法律內容佈局 */
+        /* 法律文件佈局 */
         .legal-container {
-            max-width: 800px;
+            max-width: 850px;
             margin: 0 auto;
             padding: 6rem 2rem;
         }
 
         .legal-container h1 {
-            font-size: 3rem;
+            font-size: 3.5rem;
             font-weight: 700;
-            line-height: 1.15;
+            line-height: 1.1;
             margin-bottom: 0.5rem;
-            letter-spacing: -0.02em;
-            background: linear-gradient(180deg, #ffffff 0%, #a1a1a6 100%);
+            letter-spacing: -0.03em;
+            background: linear-gradient(180deg, #ffffff 0%, #86868b 100%);
             -webkit-background-clip: text;
             -webkit-text-fill-color: transparent;
         }
 
         .last-updated {
             color: #86868b;
-            font-size: 0.9rem;
-            margin-bottom: 3rem;
+            font-size: 0.95rem;
+            margin-bottom: 4rem;
+            border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+            padding-bottom: 1rem;
         }
 
         section {
-            padding: 2.5rem 0;
+            padding: 3rem 0;
             border-bottom: 1px solid rgba(255, 255, 255, 0.1);
         }
 
@@ -101,32 +102,55 @@
         }
 
         section h2 {
-            font-size: 1.6rem;
+            font-size: 1.8rem;
             font-weight: 600;
             color: #ffffff;
-            margin-bottom: 1rem;
+            margin-bottom: 1.5rem;
+            letter-spacing: -0.01em;
+        }
+
+        section h3 {
+            font-size: 1.2rem;
+            font-weight: 600;
+            color: #e8e8ed;
+            margin: 1.5rem 0 0.5rem 0;
         }
 
         section p {
             color: #a1a1a6;
             margin-bottom: 1.2rem;
             font-size: 1.05rem;
+            text-align: justify;
         }
 
-        section ul {
+        section ul, section ol {
             color: #a1a1a6;
-            margin-left: 1.5rem;
-            margin-bottom: 1.2rem;
+            margin-left: 2rem;
+            margin-bottom: 1.5rem;
+            font-size: 1.05rem;
         }
 
         section li {
-            margin-bottom: 0.5rem;
+            margin-bottom: 0.6rem;
         }
 
-        /* Footer */
+        .alert-box {
+            background: rgba(255, 69, 58, 0.1);
+            border-left: 3px solid #ff453a;
+            padding: 1.2rem;
+            margin: 1.5rem 0;
+            border-radius: 4px;
+        }
+
+        .alert-box p {
+            color: #ff453a;
+            margin-bottom: 0;
+            font-weight: 500;
+        }
+
         footer {
             text-align: center;
-            padding: 4rem 2rem;
+            padding: 5rem 2rem;
             color: #86868b;
             font-size: 0.9rem;
             border-top: 1px solid rgba(255, 255, 255, 0.05);
@@ -147,29 +171,66 @@
     </header>
 
     <main class="legal-container">
-        <h1>Legal Documents</h1>
-        <div class="last-updated">Last updated: June 2, 2026</div>
+        <h1>Terms of Service & Privacy Policy</h1>
+        <div class="last-updated">Last Legal Revision: June 2, 2026</div>
 
         <section id="terms">
-            <h2>1. Terms of Service</h2>
-            <p>Welcome to Caleb's Studio. By accessing this website and downloading any digital assets (including rhythm game charts, 3D models, and racing liveries), you agree to comply with these terms.</p>
-            <p>All digital contents provided on this site are for personal, non-commercial use only. You may not redistribute or resell any modified or unmodified files without explicit permission.</p>
+            <h2>1. Acceptance of Terms</h2>
+            <p>By accessing, browsing, downloading, or utilizing any digital assets, source codes, configuration files, modifications (mods), or artistic content hosted on Caleb's Studio (collectively referred to as the "Services"), you acknowledge that you have read, understood, and unreservedly agree to be legally bound by these Terms of Service. If you do not agree to these terms, you must immediately terminate your access to this website and cease the use of all downloaded materials.</p>
+        </section>
+
+        <section id="license">
+            <h2>2. Intellectual Property & End-User License</h2>
+            <p>Unless explicitly stated otherwise, all original content, layouts, custom code, graphics, and unique configurations developed by Caleb's Studio are the exclusive intellectual property of Caleb. All rights reserved.</p>
+            
+            <h3>2.1 Limited Personal Use License</h3>
+            <p>Subject to your strict compliance with these Terms, Caleb's Studio grants you a personal, non-exclusive, non-transferable, non-sublicensable, revocable, and limited license to download, install, and execute the provided digital assets (including but not limited to rhythm game charts, simulator assets, and custom vehicle liveries) solely for individual, personal, and non-commercial entertainment purposes.</p>
+            
+            <h3>2.2 Strict Prohibitions</h3>
+            <p>Under this license, you are expressly prohibited from executing the following actions without prior written consent from Caleb:</p>
+            <ul>
+                <li>Selling, leasing, licensing, sublicensing, or commercially exploiting any assets acquired from this site.</li>
+                <li>Redistributing original or modified files on public file-sharing networks, cloud systems, or alternative third-party hosting portals.</li>
+                <li>Claiming authorship or ownership of any files, configurations, or creative assets produced by Caleb's Studio.</li>
+                <li>Decompiling, reverse-engineering, or extracting compressed source code assets for malicious use or re-uploading under a different title.</li>
+            </ul>
         </section>
 
         <section id="disclaimer">
-            <h2>2. Fan Content & Fair Use Disclaimer</h2>
-            <p>Caleb's Studio creates custom fan-made modifications, configurations, and artistic assets. All trademarks, character names, and copyrights related to third-party intellectual properties belong to their respective owners (including but not limited to original anime production committees, racing game developers, and railway operators).</p>
-            <p>Our projects are entirely non-profit and created under Fair Use guidelines for entertainment, portfolio demonstration, and community sharing purposes.</p>
+            <h2>3. Third-Party IP & Intellectual Property Disclaimer</h2>
+            <p>Caleb's Studio engages actively in creative fan-made modifications, mapping configurations, and secondary artistic expressions. We deeply respect intellectual property rights. All third-party trademarks, copyrighted songs, brand logos, automotive names, and intellectual assets mentioned or represented within our projects belong exclusively to their respective lawful owners.</p>
+            
+            <h3>3.1 Fair Use & Fan Content Notice</h3>
+            <p>Any utilization of third-party assets (such as song audio tracks for custom rhythm game configurations, corporate sponsor logos on custom racing game liveries, or historical railway designs for open-source simulators) is done strictly under the legal framework of <strong>Fair Use</strong> for transformative, non-profit, educational, and creative portfolio display purposes.</p>
+            <div class="alert-box">
+                <p><strong>IMPORTANT NOTICE:</strong> Caleb's Studio is entirely independent and non-commercial. We are NOT endorsed, sponsored, affiliated, or officially associated with any game development companies, motorsport organizations, or railway operators.</p>
+            </div>
+        </section>
+
+        <section id="liability">
+            <h2>4. Limitation of Liability & Warranty Disclaimer</h2>
+            <p>THE SERVICES AND ALL DOWNLOADABLE CONTENT ARE PROVIDED ON AN "AS IS" AND "AS AVAILABLE" BASIS, WITHOUT WARRANTIES OF ANY KIND, EITHER EXPRESS OR IMPLIED, INCLUDING BUT NOT LIMITED TO THE IMPLIED WARRANTIES OF MERCHANTABILITY, FITNESS FOR A PARTICULAR PURPOSE, OR NON-INFRINGEMENT.</p>
+            <p>CALEB'S STUDIO DOES NOT WARRANT THAT THE DIGITAL FILES PROVIDED WILL BE COMPLETELY ERROR-FREE, SECURE, ACCURATE, OR COMPATIBLE WITH FUTURE SOFTWARE UPDATES RELEASED BY THIRD-PARTY GAME DEVELOPERS. DOWNLOAD AND INSTALL ASSETS AT YOUR OWN DISCRETION.</p>
+            <p>IN NO EVENT SHALL CALEB BE LIABLE FOR ANY DIRECT, INDIRECT, INCIDENTAL, SPECIAL, CONSEQUENTIAL, OR PUNITIVE DAMAGES (INCLUDING, BUT NOT LIMITED TO, LOSS OF DATA, SYSTEM LAG, HARDWARE MALFUNCTION, CORRUPTION OF GAME SAVE FILES, OR SERVICE INTERRUPTIONS) ARISING OUT OF OR IN CONNECTION WITH YOUR USE OR INABILITY TO USE THE ASSETS PROVIDED, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.</p>
         </section>
 
         <section id="privacy">
-            <h2>3. Privacy Policy</h2>
-            <p>Your privacy matters. Caleb's Studio does not track, collect, or store any personal data from visitors. Any download links hosted via external cloud providers (such as OneDrive) are subject to their own respective privacy policies.</p>
+            <h2>5. Privacy Policy & Data Collection</h2>
+            <p>Caleb's Studio operates under a strict data-minimization philosophy. Your digital privacy is fully protected under the following mandates:</p>
+            <ol>
+                <li><strong>No Data Collection:</strong> This website does not deploy persistent cookies, background tracking scripts, or analytical tracking systems to harvest your identity, device information, or browsing behaviors.</li>
+                <li><strong>Third-Party Hosting Systems:</strong> Downloads are delivered via secure external cloud infrastructure (such as OneDrive, Google Drive, or GitHub). When leaving this platform to download a file, you are subject to the privacy protocols of those respective enterprise platforms.</li>
+            </ol>
+        </section>
+
+        <section id="amendments">
+            <h2>6. Amendments to Legal Terms</h2>
+            <p>Caleb's Studio reserves the unilateral right to revise, update, or modify these legal documents, disclaimers, and policies at any given moment without prior individual notification. All modifications take immediate legal effect upon being published on this page. Your continued use of the website following changes establishes binding acceptance of the updated terms.</p>
         </section>
     </main>
 
     <footer>
-        <p>&copy; 2026 Caleb's Studio. All rights reserved.</p>
+        <p>&copy; 2026 Caleb's Studio. All rights reserved. Designed to meet the highest creative and compliance standards.</p>
     </footer>
 
 </body>
