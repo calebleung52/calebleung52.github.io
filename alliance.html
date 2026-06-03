@@ -1,0 +1,201 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>The Alliance History - Caleb's Studio</title>
+    <style>
+        /* 全域重設與平滑滾動 */
+        html {
+            scroll-behavior: smooth;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+            line-height: 1.8;
+            color: #f5f5f7;
+            background-color: #000000; /* Apple 極致純黑 */
+        }
+
+        /* 毛玻璃導覽列 (與所有頁面完全同步) */
+        header {
+            background: rgba(22, 22, 23, 0.8);
+            backdrop-filter: blur(20px);
+            -webkit-backdrop-filter: blur(20px);
+            position: sticky;
+            top: 0;
+            z-index: 100;
+            border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+        }
+
+        nav {
+            max-width: 1200px;
+            margin: 0 auto;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 1rem 2rem;
+        }
+
+        nav .logo {
+            font-size: 1.3rem;
+            font-weight: 600;
+            color: #ffffff;
+            text-decoration: none;
+            transition: opacity 0.3s;
+        }
+
+        nav .logo:hover {
+            opacity: 0.8;
+        }
+
+        nav ul {
+            list-style: none;
+            display: flex;
+            gap: 2rem;
+        }
+
+        nav a {
+            color: #a1a1a6;
+            text-decoration: none;
+            font-size: 0.9rem;
+            transition: color 0.3s;
+        }
+
+        nav a:hover {
+            color: #ffffff;
+        }
+
+        /* 故事內容佈局 */
+        .story-container {
+            max-width: 800px;
+            margin: 0 auto;
+            padding: 6rem 2rem;
+        }
+
+        .story-container h1 {
+            font-size: 3.5rem;
+            font-weight: 700;
+            line-height: 1.1;
+            margin-bottom: 0.5rem;
+            letter-spacing: -0.03em;
+            background: linear-gradient(180deg, #ffffff 0%, #86868b 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+
+        .subtitle {
+            color: #86868b;
+            font-size: 1.1rem;
+            margin-bottom: 4rem;
+            border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+            padding-bottom: 1rem;
+        }
+
+        .story-content p {
+            color: #a1a1a6;
+            margin-bottom: 1.8rem;
+            font-size: 1.1rem;
+            text-align: justify;
+        }
+
+        .story-content strong {
+            color: #ffffff;
+            font-weight: 600;
+        }
+
+        /* 盟友卡片區塊 */
+        .alliance-card {
+            background: rgba(255, 255, 255, 0.03);
+            border: 1px solid rgba(255, 255, 255, 0.08);
+            border-radius: 12px;
+            padding: 2rem;
+            margin-top: 3.5rem;
+            text-align: center;
+        }
+
+        .alliance-card h3 {
+            color: #ffffff;
+            font-size: 1.4rem;
+            margin-bottom: 1rem;
+        }
+
+        .alliance-btn {
+            display: inline-block;
+            background-color: #ffffff;
+            color: #000000;
+            padding: 0.8rem 2rem;
+            font-size: 0.95rem;
+            font-weight: 600;
+            border-radius: 980px;
+            text-decoration: none;
+            transition: all 0.3s ease;
+            margin-top: 0.5rem;
+        }
+
+        .alliance-btn:hover {
+            background-color: #e8e8ed;
+            transform: scale(1.02);
+        }
+
+        /* Footer */
+        footer {
+            text-align: center;
+            padding: 5rem 2rem;
+            color: #86868b;
+            font-size: 0.9rem;
+            border-top: 1px solid rgba(255, 255, 255, 0.05);
+        }
+    </style>
+</head>
+<body>
+
+    <!-- 導覽列：點擊跨頁面返回主頁並平滑滑動 -->
+    <header>
+        <nav>
+            <a href="index.html#" class="logo">Caleb</a>
+            <ul>
+                <li><a href="index.html#about">About</a></li>
+                <li><a href="index.html#skills">Skills</a></li>
+                <li><a href="index.html#projects">Projects</a></li>
+                <li><a href="alliance.html" style="color: #ffffff;">Alliance</a></li>
+                <li><a href="legal.html">Legal</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <!-- 盟友歷史故事核心內容 -->
+    <main class="story-container">
+        <h1>The Alliance History</h1>
+        <div class="subtitle">Caleb's Studio & Chase McDillan</div>
+
+        <article class="story-content">
+            <p>Great creations are rarely born in isolation. The creative alliance between <strong>Caleb's Studio</strong> and <strong>Chase McDillan</strong> emerged from a shared passion for digital craftsmanship, precision configuration, and pushing the boundaries of independent asset development.</p>
+            
+            <p>We started our journeys as independent creators in the digital space, frequently cross-referencing, reviewing, and auditing each other's technical projects, 3D assets, and logic structures. Over time, we realized that by merging our insights, peer-reviewing our asset pipelines, and establishing a strategic creative bond, we could deliver an uncompromised level of quality to the community.</p>
+            
+            <p>Today, our platforms stand side-by-side—completely autonomous in operations and legal liabilities, yet deeply unified in creative spirit, technical vision, and dedication to flawless digital asset generation.</p>
+        </article>
+
+        <!-- 呼應主題的外鏈卡片 -->
+        <div class="alliance-card">
+            <h3>Explore Our Allied Studio</h3>
+            <p style="color: #86868b; font-size: 0.95rem; margin-bottom: 1.5rem;">Discover high-quality projects, asset showcases, and technical developments by Chase McDillan.</p>
+            <a href="https://chasemcdillan.github.io/" target="_blank" class="alliance-btn">
+                Visit chasemcdillan.github.io &rarr;
+            </a>
+        </div>
+    </main>
+
+    <footer>
+        <p>&copy; 2026 Caleb's Studio. Shared vision, independent execution.</p>
+    </footer>
+
+</body>
+</html>
