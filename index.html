@@ -41,11 +41,6 @@
             --hero-gradient: linear-gradient(180deg, #1d1d1f 0%, #6e6e73 100%);
         }
 
-        /* 全域重設與平滑滾動 */
-        html {
-            scroll-behavior: smooth;
-        }
-
         * {
             margin: 0;
             padding: 0;
@@ -60,7 +55,7 @@
             transition: background-color 0.3s ease, color 0.3s ease;
         }
 
-        /* 導覽列 */
+        /* 导肮列 */
         header {
             background: var(--nav-bg);
             backdrop-filter: blur(20px);
@@ -114,7 +109,7 @@
             color: var(--text-primary);
         }
 
-        /* 主題切換按鈕 */
+        /* 主题切换按钮 */
         .theme-toggle {
             background: none;
             border: none;
@@ -139,31 +134,12 @@
             fill: none;
         }
 
-        body.light-mode .theme-toggle .moon-icon {
-            display: block;
-        }
+        body.light-mode .theme-toggle .moon-icon { display: block; }
+        body.light-mode .theme-toggle .sun-icon { display: none; }
+        .theme-toggle .moon-icon { display: none; }
+        .theme-toggle .sun-icon { display: block; }
 
-        body.light-mode .theme-toggle .sun-icon {
-            display: none;
-        }
-
-        .theme-toggle .moon-icon {
-            display: none;
-        }
-
-        .theme-toggle .sun-icon {
-            display: block;
-        }
-
-        body.light-mode .theme-toggle .moon-icon {
-            display: none;
-        }
-
-        body.light-mode .theme-toggle .sun-icon {
-            display: block;
-        }
-
-        /* APPLE PRO 全螢幕沉浸式 Hero 區塊 */
+        /* Hero */
         .hero-container {
             background-color: var(--bg-primary);
             min-height: calc(100vh - 70px);
@@ -269,7 +245,6 @@
             box-shadow: 0 30px 60px var(--shadow-color);
         }
 
-        /* 通用內容樣式 */
         .container {
             max-width: 1200px;
             margin: 0 auto;
@@ -431,7 +406,6 @@
             .cta-button { width: 100%; text-align: center; }
             .hero-main-asset { margin-top: 3.5rem; }
             nav ul li:not(:last-child) { display: none; }
-            nav ul .theme-toggle-li { display: block; }
         }
     </style>
 </head>
@@ -439,7 +413,7 @@
 
 <header>
     <nav>
-        <a href="index.html" class="logo">
+        <a href="/" class="logo">
             <svg width="28" height="28" viewBox="0 0 32 32" fill="none" xmlns="http://www.w3.org/2000/svg">
                 <rect width="32" height="32" rx="8" fill="#0071e3"/>
                 <path d="M10 16L14 12L18 16L22 12" stroke="white" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
@@ -454,13 +428,11 @@
             <li><a href="#projects">Projects</a></li>
             <li><a href="alliance.html">Alliance</a></li>
             <li><a href="legal.html">Legal</a></li>
-            <li class="theme-toggle-li">
+            <li>
                 <button id="theme-toggle" class="theme-toggle" aria-label="切换深色/浅色模式">
-                    <!-- 太阳图标（浅色模式） -->
                     <svg class="sun-icon" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor">
                         <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 3v1m0 16v1m9-9h-1M4 12H3m15.364 6.364l-.707-.707M6.343 6.343l-.707-.707m12.728 0l-.707.707M6.343 17.657l-.707.707M16 12a4 4 0 11-8 0 4 4 0 018 0z" />
                     </svg>
-                    <!-- 月亮图标（深色模式） -->
                     <svg class="moon-icon" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor">
                         <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M20.354 15.354A9 9 0 018.646 3.646 9.003 9.003 0 0012 21a9.003 9.003 0 008.354-5.646z" />
                     </svg>
@@ -470,7 +442,6 @@
     </nav>
 </header>
 
-    <!-- HERO 區塊 -->
     <div class="hero-container">
         <div class="hero-content">
             <p class="hero-badge">Introducing Caleb Studio</p>
@@ -489,7 +460,6 @@
         </div>
     </div>
 
-    <!-- About Section -->
     <section id="about">
         <div class="container">
             <h2>About Me</h2>
@@ -499,7 +469,6 @@
         </div>
     </section>
 
-    <!-- Skills Section -->
     <section id="skills">
         <div class="container">
             <h2>My Skills</h2>
@@ -520,7 +489,6 @@
         </div>
     </section>
 
-    <!-- Projects Section -->
     <section id="projects">
         <div class="container">
             <h2>My Projects</h2>
@@ -574,7 +542,6 @@
                     </div>
                 </div>
 
-                <!-- TJA Chart Editor App 项目卡片 -->
                 <div class="project-card">
                     <div class="project-image-box">
                         <img src="app_cover.jpg" alt="TJA Chart Editor" onerror="this.style.display='none';">
@@ -594,11 +561,30 @@
                     </div>
                 </div>
 
+                <!-- 🌟 NEW: GameSync 项目卡片 -->
+                <div class="project-card">
+                    <div class="project-image-box">
+                        <img src="gamesync_cover.jpg" alt="GameSync Hub" onerror="this.style.display='none';">
+                        <span class="fallback-emoji">🎮</span>
+                    </div>
+                    <div class="project-content">
+                        <h3>GameSync Hub</h3>
+                        <p>Your hub for Ala Mobile setups & Taiko TJA charts. Free downloads, premium upgrades coming soon.</p>
+                        <div style="display: flex; gap: 1rem; align-items: center; flex-wrap: wrap;">
+                            <a href="gamesync.html" class="download-btn" style="background-color: var(--button-bg);">
+                                🎮 Explore Hub
+                            </a>
+                            <a href="gamesync.html#premium" style="color: var(--link-color); text-decoration: none; font-size: 0.85rem;">
+                                Premium Preview →
+                            </a>
+                        </div>
+                    </div>
+                </div>
+
             </div>
         </div>
     </section>
 
-    <!-- Allies Section -->
     <section id="allies" style="background-color: var(--bg-secondary); padding: 4rem 2rem; border-top: 1px solid var(--border-color);">
         <div class="container" style="text-align: center;">
             <h2 style="margin-bottom: 2rem;">My Allies</h2>
@@ -609,7 +595,6 @@
         </div>
     </section>
 
-    <!-- Supporters Section -->
     <section id="supporters" style="background-color: var(--bg-secondary); padding: 4rem 2rem; border-top: 1px solid var(--border-color);">
         <div class="container" style="text-align: center;">
             <h2 style="margin-bottom: 2rem;">Supporters</h2>
@@ -628,26 +613,15 @@
         <p>&copy; 2026 Caleb's Studio. All rights reserved.</p>
     </footer>
 
-    <!-- 主题切换 JavaScript -->
     <script>
         const themeToggle = document.getElementById('theme-toggle');
-        
-        // 检查用户之前保存的偏好
         const savedTheme = localStorage.getItem('theme');
         if (savedTheme === 'light') {
             document.body.classList.add('light-mode');
         }
-        
-        // 监听按钮点击
         themeToggle.addEventListener('click', () => {
             document.body.classList.toggle('light-mode');
-            
-            // 保存用户偏好
-            if (document.body.classList.contains('light-mode')) {
-                localStorage.setItem('theme', 'light');
-            } else {
-                localStorage.setItem('theme', 'dark');
-            }
+            localStorage.setItem('theme', document.body.classList.contains('light-mode') ? 'light' : 'dark');
         });
     </script>
 
