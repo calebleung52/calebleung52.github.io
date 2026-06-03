@@ -1,49 +1,48 @@
- <!DOCTYPE html>
+<!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Caleb's Studio- Caleb</title>
-  <style>
-    /* 全域重設與平滑滾動 */
-    html {
-        scroll-behavior: smooth; /* 呢行就係平滑滾動嘅魔法 */
-    }
+    <title>Caleb's Studio - Caleb</title>
+    <style>
+        /* 全域重設與平滑滾動 */
+        html {
+            scroll-behavior: smooth;
+        }
 
-    * {
-        margin: 0;
-        padding: 0;
-        box-sizing: border-box;
-    }
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+          
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+            line-height: 1.6;
+            color: #f5f5f7;
+            background-color: #000000; /* 型格全黑背景 */
+        }
 
-      
- body {
-    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
-    line-height: 1.6;
-    color: #f5f5f7;
-    background-color: #000000; /* 型格全黑背景 */
-}
+        /* 導覽列 */
+        header {
+            background: rgba(22, 22, 23, 0.8);
+            backdrop-filter: blur(20px);
+            -webkit-backdrop-filter: blur(20px);
+            position: sticky;
+            top: 0;
+            z-index: 100;
+            border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+        }
 
-/* 導覽列 */
-header {
-    background: rgba(22, 22, 23, 0.8);
-    backdrop-filter: blur(20px);
-    -webkit-backdrop-filter: blur(20px);
-    position: sticky;
-    top: 0;
-    z-index: 100;
-    border-bottom: 1px solid rgba(255, 255, 255, 0.1);
-}
-
-nav {
-    max-width: 1200px; /* 補返 px */
-    margin: 0 auto;
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    padding: 1rem 2rem;
-} /* 確保有呢個右大括號閉合 */
-    
+        nav {
+            max-width: 1200px;
+            margin: 0 auto;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 1rem 2rem;
+        }
+        
         nav .logo {
             font-size: 1.3rem;
             font-weight: 600;
@@ -67,69 +66,112 @@ nav {
             color: #ffffff;
         }
 
-        /* 🚀 Front Page (Hero Section) 雙欄排版 */
+        /* 🚀 新！APPLE PRO 全螢幕沉浸式 Hero 區塊（移走右相，改為大氣置中） */
         .hero-container {
-            background-color: #0d0d0e;
+            background-color: #000000;
+            min-height: calc(100vh - 70px);
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            text-align: center;
             padding: 6rem 2rem;
-            border-bottom: 1px solid rgba(255, 255, 255, 0.05);
+            position: relative;
+            overflow: hidden;
         }
 
         .hero-content {
-            max-width: 1200px;
+            max-width: 1050px;
             margin: 0 auto;
-            display: grid;
-            grid-template-columns: 1.2fr 0.8fr; /* 左文字，右大圖 */
-            gap: 4rem;
+            display: flex;
+            flex-direction: column;
             align-items: center;
         }
 
+        .hero-badge {
+            font-size: 1.1rem;
+            font-weight: 600;
+            color: #2997ff;
+            letter-spacing: 0.05em;
+            margin-bottom: 1.2rem;
+            text-transform: uppercase;
+        }
+
         .hero-text h1 {
-            font-size: 3.5rem;
+            font-size: 4.8rem;
             font-weight: 700;
-            line-height: 1.15;
-            margin-bottom: 1rem;
-            letter-spacing: -0.03em;
+            line-height: 1.1;
+            letter-spacing: -0.04em;
+            margin-bottom: 1.5rem;
             background: linear-gradient(180deg, #ffffff 0%, #a1a1a6 100%);
             -webkit-background-clip: text;
             -webkit-text-fill-color: transparent;
         }
 
         .hero-text p {
-            font-size: 1.25rem;
+            font-size: 1.4rem;
             color: #86868b;
-            margin-bottom: 2.5rem;
+            max-width: 680px;
+            line-height: 1.6;
+            margin-bottom: 3.5rem;
+            letter-spacing: -0.01em;
+        }
+
+        /* Apple 雙按鈕導覽排版 */
+        .hero-cta-group {
+            display: flex;
+            gap: 2rem;
+            align-items: center;
+            z-index: 10;
         }
 
         .cta-button {
             display: inline-block;
             background-color: #0071e3;
             color: #ffffff;
-            padding: 0.8rem 2rem;
+            padding: 0.9rem 2.5rem;
+            font-size: 1.05rem;
             border-radius: 980px;
             text-decoration: none;
             font-weight: 500;
-            transition: background-color 0.2s;
+            transition: all 0.3s cubic-bezier(0.25, 1, 0.5, 1);
         }
 
         .cta-button:hover {
-            background-color: #0077ed;
+            background-color: #147ce5;
+            transform: scale(1.02);
         }
 
-        /* 📸 Front Page 右側精選大圖外框 */
-        .hero-image-wrapper {
-            width: 100%;
-            height: 400px;
-            border-radius: 24px;
-            overflow: hidden;
-            border: 1px solid rgba(255, 255, 255, 0.1);
-            background: #1c1c1e;
-            box-shadow: 0 25px 50px rgba(0, 0, 0, 0.6);
+        .secondary-link {
+            display: inline-block;
+            color: #2997ff;
+            font-size: 1.05rem;
+            font-weight: 500;
+            text-decoration: none;
+            transition: color 0.3s;
         }
 
-        .hero-image-wrapper img {
+        .secondary-link:hover {
+            color: #147ce5;
+            text-decoration: underline;
+        }
+
+        /* 📸 中央下方巨型精選資產展示（發布會主角效果） */
+        .hero-main-asset {
+            margin-top: 5.5rem;
             width: 100%;
-            height: 100%;
+            max-width: 950px;
+            padding: 0 1rem;
+        }
+
+        .hero-main-asset img {
+            width: 100%;
+            height: auto;
+            max-height: 480px;
             object-fit: cover;
+            border-radius: 20px;
+            border: 1px solid rgba(255, 255, 255, 0.15);
+            box-shadow: 0 30px 60px rgba(0, 0, 0, 0.8);
         }
 
         /* 通用內容樣式 */
@@ -168,7 +210,7 @@ nav {
             display: grid;
             grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
             gap: 2rem;
-            padding: 2rem; /* 增加啲空間俾放大後唔會貼邊 */
+            padding: 2rem;
         }
 
         .skill-card {
@@ -177,13 +219,12 @@ nav {
             border-radius: 18px;
             text-align: center;
             border: 1px solid rgba(255, 255, 255, 0.05);
-            /* 關鍵特效：一定要寫喺呢度 */
             transition: transform 0.3s cubic-bezier(0.25, 0.1, 0.25, 1);
-            cursor: default; /* 令滑鼠變返普通箭咀 */
+            cursor: default;
         }
 
         .skill-card:hover {
-            transform: scale(1.03); /* 放大 3% */
+            transform: scale(1.03);
         }
 
         .skill-card h3 { color: #ffffff; margin-bottom: 1rem; font-size: 1.3rem; }
@@ -210,7 +251,6 @@ nav {
             box-shadow: 0 15px 30px rgba(0, 0, 0, 0.6);
         }
 
-        /* 卡片內相片格子 */
         .project-image-box {
             width: 100%;
             height: 220px;
@@ -271,6 +311,21 @@ nav {
         .download-btn:hover { background-color: #0077ed; }
         .download-btn:active { transform: scale(0.96); }
 
+        /* 友情連結與支持者按鈕樣式 */
+        .badge-link {
+            color: #86868b; 
+            text-decoration: none; 
+            padding: 0.8rem 1.5rem; 
+            border: 1px solid #333; 
+            border-radius: 980px; 
+            transition: all 0.3s;
+        }
+        .badge-link:hover {
+            color: #ffffff;
+            border-color: #666;
+            background-color: rgba(255, 255, 255, 0.02);
+        }
+
         /* Footer */
         footer {
             text-align: center;
@@ -282,18 +337,12 @@ nav {
 
         /* 響應式排版 */
         @media (max-width: 768px) {
-            .hero-content { grid-template-columns: 1fr; text-align: center; }
             .hero-text h1 { font-size: 2.8rem; }
-            .hero-image-wrapper { height: 300px; }
+            .hero-text p { font-size: 1.15rem; margin-bottom: 2.5rem; }
+            .hero-cta-group { flex-direction: column; gap: 1rem; width: 100%; }
+            .cta-button { width: 100%; text-align: center; }
+            .hero-main-asset { margin-top: 3.5rem; }
             nav ul { display: none; }
-.skill-card {
-    transition: transform 0.3s cubic-bezier(0.25, 0.1, 0.25, 1);
-    will-change: transform;
-}
-
-.skill-card:hover {
-    transform: scale(1.03);
-}
         }
     </style>
 </head>
@@ -306,34 +355,43 @@ nav {
             <li><a href="#about">About</a></li>
             <li><a href="#skills">Skills</a></li>
             <li><a href="#projects">Projects</a></li>
-            <li><a href="alliance.html">Alliance</a></li> <!-- ❗ 點擊前往新頁面 -->
+            <li><a href="alliance.html">Alliance</a></li>
             <li><a href="legal.html">Legal</a></li>
         </ul>
     </nav>
 </header>
 
+    <!-- 🚀 APPLE PRO IMMERSIVE HERO SECTION -->
     <div class="hero-container">
         <div class="hero-content">
+            <p class="hero-badge">Introducing Caleb Studio</p>
             <div class="hero-text">
-                <h1>Welcome to<br>Caleb Studio</h1>
-                <p>Digital Creator | Technology Enthusiast</p>
-                <a href="#projects" class="cta-button">View My Work</a>
+                <h1>Digital Creator.<br>Technology Enthusiast.</h1>
+                <p>Engineering high-tier digital assets, advanced 3D models, and next-generation code pipelines in Richmond, Vancouver.</p>
             </div>
-            <div class="hero-image-wrapper">
-                <img src="hero_main.jpg" alt="My Highlight Work" onerror="this.style.display='none';">
+            <div class="hero-cta-group">
+                <a href="#projects" class="cta-button">View My Work</a>
+                <a href="alliance.html" class="secondary-link">Explore Alliance &rarr;</a>
+            </div>
+            
+            <!-- 📸 發布會核心展示：將 hero_main.jpg 放喺正中央下方 -->
+            <div class="hero-main-asset">
+                <img src="hero_main.jpg" alt="Caleb Studio Key Asset Showcase" onerror="this.style.display='none';">
             </div>
         </div>
     </div>
 
+    <!-- About Section -->
     <section id="about">
         <div class="container">
             <h2>About Me</h2>
             <div class="about-content">
-                <p>Hi! I'm Caleb. I am a student from Vancouver & born in Hong Kong & also the founder of the Caleb Studio. I love digital creation, technical development,and taking photos.</p>
+                <p>Hi! I'm Caleb. I am a student from Vancouver & born in Hong Kong & also the founder of the Caleb Studio. I love digital creation, technical development, and taking photos.</p>
             </div>
         </div>
     </section>
 
+    <!-- Skills Section -->
     <section id="skills">
         <div class="container">
             <h2>My Skills</h2>
@@ -354,7 +412,8 @@ nav {
         </div>
     </section>
 
-<section id="projects">
+    <!-- Projects Section -->
+    <section id="projects">
         <div class="container">
             <h2>My Projects</h2>
             <div class="projects-grid">
@@ -383,88 +442,69 @@ nav {
                     </div>
                 </div>
 
-               <div class="project-card">
-    <div class="project-image-box">
-        <img src="project3.jpg" alt="Ala Mobile Livery" onerror="this.style.display='none';">
-        <span class="fallback-emoji">🎮</span>
-    </div>
-    <div class="project-content">
-        <h3>Ala Mobile Liveries</h3>
-        <p>Custom racing team liveries, sponsor decals, and high-quality skin configurations.</p>
-        <a href="https://1drv.ms/f/c/15eb311a8dd976a8/IgCh5JA_STW_Qqt7fe0YkZTxATIZiY-i-r4xv_H4l7MfvHg?e=EYhQpm" target="_blank" class="download-btn">Download Skins 📥</a>
-    </div>
-</div>
-
                 <div class="project-card">
                     <div class="project-image-box">
-                   <img src="project4.jpg" alt="My Photography" onerror="this.style.display='none';">
+                        <img src="project3.jpg" alt="Ala Mobile Livery" onerror="this.style.display='none';">
+                        <span class="fallback-emoji">🎮</span>
+                    </div>
+                    <div class="project-content">
+                        <h3>Ala Mobile Liveries</h3>
+                        <p>Custom racing team liveries, sponsor decals, and high-quality skin configurations.</p>
+                        <a href="https://1drv.ms/f/c/15eb311a8dd976a8/IgCh5JA_STW_Qqt7fe0YkZTxATIZiY-i-r4xv_H4l7MfvHg?e=EYhQpm" target="_blank" class="download-btn">Download Skins 📥</a>
+                    </div>
+                </div>
+
+                <!-- 💡 盲點修復：幫你補返 <p> 標籤，確保卡片高度絕對一致 -->
+                <div class="project-card">
+                    <div class="project-image-box">
+                        <img src="project4.jpg" alt="My Photography" onerror="this.style.display='none';">
                         <span class="fallback-emoji">📸</span>
                     </div>
                     <div class="project-content">
-                      <h3>My Photography</h3>
-                      <a href="gallery.html" target="_blank" class="download-btn">View Gallery 👁️</a>
+                        <h3>My Photography</h3>
+                        <p>Explore high-quality captures, urban framing, and visual asset collections.</p>
+                        <a href="gallery.html" target="_blank" class="download-btn">View Gallery 👁️</a>
                     </div>
                 </div>
-                 <div class="project-card">
-    <div class="project-image-box">
-        <img src="bve_cover.jpg" alt="OpenBVE Projects">
-        <span class="fallback-emoji">🚆</span>
-    </div>
-    <div class="project-content">
-        <h3>OpenBVE Hub</h3>
-        <p>Explore all my train liveries, routes, and custom packs.</p>
-        <a href="openbve.html" class="download-btn">View OpenBVE Projects 🛤️</a>
-    </div>
-</div>
+
+                <div class="project-card">
+                    <div class="project-image-box">
+                        <img src="bve_cover.jpg" alt="OpenBVE Projects" onerror="this.style.display='none';">
+                        <span class="fallback-emoji">🚆</span>
+                    </div>
+                    <div class="project-content">
+                        <h3>OpenBVE Hub</h3>
+                        <p>Explore all my train liveries, routes, and custom packs.</p>
+                        <a href="openbve.html" class="download-btn">View OpenBVE Projects 🛤️</a>
+                    </div>
+                </div>
 
             </div>
         </div>
     </section>
+
+    <!-- Allies Section -->
     <section id="allies" style="background-color: #050505; padding: 4rem 2rem; border-top: 1px solid rgba(255, 255, 255, 0.05);">
         <div class="container" style="text-align: center;">
             <h2 style="margin-bottom: 2rem;">My Allies</h2>
             <div style="display: flex; gap: 1.5rem; justify-content: center; flex-wrap: wrap;">
-                
-                <a href="https://hayeswong.com/" target="_blank" style="color: #86868b; text-decoration: none; padding: 0.8rem 1.5rem; border: 1px solid #333; border-radius: 980px; transition: 0.3s;">
-                    Hayes Wong
-                </a>
-
-                <a href="https://chasemcdillan.github.io/" target="_blank" style="color: #86868b; text-decoration: none; padding: 0.8rem 1.5rem; border: 1px solid #333; border-radius: 980px; transition: 0.3s;">
-                    Chase McDillan
-                </a>
-
-                </div>
+                <a href="https://hayeswong.com/" target="_blank" class="badge-link">Hayes Wong</a>
+                <a href="https://chasemcdillan.github.io/" target="_blank" class="badge-link">Chase McDillan</a>
+            </div>
         </div>
     </section>
-    <section id="allies" style="background-color: #050505; padding: 4rem 2rem; border-top: 1px solid rgba(255, 255, 255, 0.05);">
+
+    <!-- Supporters Section (💡 盲點修復：ID 由 allies 改為 supporters) -->
+    <section id="supporters" style="background-color: #050505; padding: 4rem 2rem; border-top: 1px solid rgba(255, 255, 255, 0.05);">
         <div class="container" style="text-align: center;">
             <h2 style="margin-bottom: 2rem;">Supporters</h2>
             <div style="display: flex; gap: 1.5rem; justify-content: center; flex-wrap: wrap;">
-
-                <a href="https://www.eki-net.com/Personal/Top/Index/" target="_blank" style="color: #86868b; text-decoration: none; padding: 0.8rem 1.5rem; border: 1px solid #333; border-radius: 980px; transition: 0.3s;">
-                    JR EAST RAILWAY COMPANY (Eki net)
-                </a>
-
-                 <a href="https://www.jreast.co.jp/" target="_blank" style="color: #86868b; text-decoration: none; padding: 0.8rem 1.5rem; border: 1px solid #333; border-radius: 980px; transition: 0.3s;">
-                    JR EAST RAILWAY COMPANY
-                </a>
-
-                <a href="https://www.jrhokkaido.co.jp/" target="_blank" style="color: #86868b; text-decoration: none; padding: 0.8rem 1.5rem; border: 1px solid #333; border-radius: 980px; transition: 0.3s;">
-                    JR HOKKAIDO RAILWAY COMPANY
-                </a>
-
-                  <a href="https://www.westjr.co.jp/" target="_blank" style="color: #86868b; text-decoration: none; padding: 0.8rem 1.5rem; border: 1px solid #333; border-radius: 980px; transition: 0.3s;">
-                    JR WEST RAILWAY COMPANY
-                </a>
-
-                <a href="https://www.mtr.com.hk/" target="_blank" style="color: #86868b; text-decoration: none; padding: 0.8rem 1.5rem; border: 1px solid #333; border-radius: 980px; transition: 0.3s;">
-                    MTR
-                </a>
-
-                <a href="https://www.sunrise-inc.co.jp/" target="_blank" style="color: #86868b; text-decoration: none; padding: 0.8rem 1.5rem; border: 1px solid #333; border-radius: 980px; transition: 0.3s;">
-                   Sunrise
-                </a>
-
+                <a href="https://www.eki-net.com/Personal/Top/Index/" target="_blank" class="badge-link">JR EAST RAILWAY COMPANY (Eki net)</a>
+                <a href="https://www.jreast.co.jp/" target="_blank" class="badge-link">JR EAST RAILWAY COMPANY</a>
+                <a href="https://www.jrhokkaido.co.jp/" target="_blank" class="badge-link">JR HOKKAIDO RAILWAY COMPANY</a>
+                <a href="https://www.westjr.co.jp/" target="_blank" class="badge-link">JR WEST RAILWAY COMPANY</a>
+                <a href="https://www.mtr.com.hk/" target="_blank" class="badge-link">MTR</a>
+                <a href="https://www.sunrise-inc.co.jp/" target="_blank" class="badge-link">Sunrise</a>
             </div>
         </div>
     </section>
