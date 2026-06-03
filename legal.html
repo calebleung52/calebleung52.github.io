@@ -1,0 +1,176 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Legal Documents - Caleb's Studio</title>
+    <style>
+        /* 全域重設與平滑滾動 */
+        html {
+            scroll-behavior: smooth;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+            line-height: 1.7;
+            color: #f5f5f7;
+            background-color: #000000;
+        }
+
+        /* 導覽列 (同主頁完全同步) */
+        header {
+            background: rgba(22, 22, 23, 0.8);
+            backdrop-filter: blur(20px);
+            -webkit-backdrop-filter: blur(20px);
+            position: sticky;
+            top: 0;
+            z-index: 100;
+            border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+        }
+
+        nav {
+            max-width: 1200px;
+            margin: 0 auto;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 1rem 2rem;
+        }
+
+        nav .logo {
+            font-size: 1.3rem;
+            font-weight: 600;
+            color: #ffffff;
+            text-decoration: none;
+        }
+
+        nav ul {
+            list-style: none;
+            display: flex;
+            gap: 2rem;
+        }
+
+        nav a {
+            color: #a1a1a6;
+            text-decoration: none;
+            font-size: 0.9rem;
+            transition: color 0.3s;
+        }
+
+        nav a:hover {
+            color: #ffffff;
+        }
+
+        /* 法律內容佈局 */
+        .legal-container {
+            max-width: 800px;
+            margin: 0 auto;
+            padding: 6rem 2rem;
+        }
+
+        .legal-container h1 {
+            font-size: 3rem;
+            font-weight: 700;
+            line-height: 1.15;
+            margin-bottom: 0.5rem;
+            letter-spacing: -0.02em;
+            background: linear-gradient(180deg, #ffffff 0%, #a1a1a6 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+
+        .last-updated {
+            color: #86868b;
+            font-size: 0.9rem;
+            margin-bottom: 3rem;
+        }
+
+        section {
+            padding: 2.5rem 0;
+            border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+        }
+
+        section:last-of-type {
+            border-bottom: none;
+        }
+
+        section h2 {
+            font-size: 1.6rem;
+            font-weight: 600;
+            color: #ffffff;
+            margin-bottom: 1rem;
+        }
+
+        section p {
+            color: #a1a1a6;
+            margin-bottom: 1.2rem;
+            font-size: 1.05rem;
+        }
+
+        section ul {
+            color: #a1a1a6;
+            margin-left: 1.5rem;
+            margin-bottom: 1.2rem;
+        }
+
+        section li {
+            margin-bottom: 0.5rem;
+        }
+
+        /* Footer */
+        footer {
+            text-align: center;
+            padding: 4rem 2rem;
+            color: #86868b;
+            font-size: 0.9rem;
+            border-top: 1px solid rgba(255, 255, 255, 0.05);
+        }
+    </style>
+</head>
+<body>
+
+    <header>
+        <nav>
+            <a href="index.html#" class="logo">Caleb</a>
+            <ul>
+                <li><a href="index.html#about">About</a></li>
+                <li><a href="index.html#skills">Skills</a></li>
+                <li><a href="index.html#projects">Projects</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <main class="legal-container">
+        <h1>Legal Documents</h1>
+        <div class="last-updated">Last updated: June 2, 2026</div>
+
+        <section id="terms">
+            <h2>1. Terms of Service</h2>
+            <p>Welcome to Caleb's Studio. By accessing this website and downloading any digital assets (including rhythm game charts, 3D models, and racing liveries), you agree to comply with these terms.</p>
+            <p>All digital contents provided on this site are for personal, non-commercial use only. You may not redistribute or resell any modified or unmodified files without explicit permission.</p>
+        </section>
+
+        <section id="disclaimer">
+            <h2>2. Fan Content & Fair Use Disclaimer</h2>
+            <p>Caleb's Studio creates custom fan-made modifications, configurations, and artistic assets. All trademarks, character names, and copyrights related to third-party intellectual properties belong to their respective owners (including but not limited to original anime production committees, racing game developers, and railway operators).</p>
+            <p>Our projects are entirely non-profit and created under Fair Use guidelines for entertainment, portfolio demonstration, and community sharing purposes.</p>
+        </section>
+
+        <section id="privacy">
+            <h2>3. Privacy Policy</h2>
+            <p>Your privacy matters. Caleb's Studio does not track, collect, or store any personal data from visitors. Any download links hosted via external cloud providers (such as OneDrive) are subject to their own respective privacy policies.</p>
+        </section>
+    </main>
+
+    <footer>
+        <p>&copy; 2026 Caleb's Studio. All rights reserved.</p>
+    </footer>
+
+</body>
+</html>
