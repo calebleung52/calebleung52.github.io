@@ -1,0 +1,415 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>TJA Chart Editor - Caleb's Studio</title>
+    <style>
+        html {
+            scroll-behavior: smooth;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+            line-height: 1.6;
+            color: #f5f5f7;
+            background-color: #000000;
+        }
+
+        /* 毛玻璃導覽列 */
+        header {
+            background: rgba(22, 22, 23, 0.8);
+            backdrop-filter: blur(20px);
+            -webkit-backdrop-filter: blur(20px);
+            position: sticky;
+            top: 0;
+            z-index: 100;
+            border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+        }
+
+        nav {
+            max-width: 1200px;
+            margin: 0 auto;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 1rem 2rem;
+        }
+
+        nav .logo {
+            font-size: 1.3rem;
+            font-weight: 600;
+            color: #ffffff;
+            text-decoration: none;
+            transition: opacity 0.3s;
+        }
+
+        nav .logo:hover {
+            opacity: 0.8;
+        }
+
+        nav ul {
+            list-style: none;
+            display: flex;
+            gap: 2rem;
+        }
+
+        nav a {
+            color: #a1a1a6;
+            text-decoration: none;
+            font-size: 0.9rem;
+            transition: color 0.3s;
+        }
+
+        nav a:hover {
+            color: #ffffff;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 2rem;
+        }
+
+        /* Hero Section */
+        .hero {
+            padding: 6rem 0 4rem 0;
+            text-align: center;
+        }
+
+        .app-icon {
+            width: 120px;
+            height: 120px;
+            background: linear-gradient(135deg, #ff453a, #ff9f0a);
+            border-radius: 24px;
+            margin: 0 auto 1.5rem auto;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 3.5rem;
+            box-shadow: 0 20px 40px rgba(255, 69, 58, 0.3);
+        }
+
+        .hero h1 {
+            font-size: 3.5rem;
+            font-weight: 700;
+            letter-spacing: -0.03em;
+            background: linear-gradient(180deg, #ffffff 0%, #a1a1a6 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            margin-bottom: 1rem;
+        }
+
+        .hero .tagline {
+            font-size: 1.3rem;
+            color: #86868b;
+            max-width: 600px;
+            margin: 0 auto 2rem auto;
+        }
+
+        .open-btn {
+            display: inline-flex;
+            align-items: center;
+            gap: 0.8rem;
+            background-color: #0071e3;
+            color: #ffffff;
+            padding: 0.9rem 2.2rem;
+            border-radius: 980px;
+            text-decoration: none;
+            font-weight: 500;
+            font-size: 1.1rem;
+            transition: all 0.3s ease;
+        }
+
+        .open-btn:hover {
+            background-color: #147ce5;
+            transform: scale(1.02);
+        }
+
+        /* Features Section */
+        .features {
+            padding: 5rem 0;
+            background-color: #050505;
+        }
+
+        .section-title {
+            font-size: 2.2rem;
+            font-weight: 600;
+            text-align: center;
+            margin-bottom: 3rem;
+            color: #ffffff;
+        }
+
+        .features-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 2rem;
+        }
+
+        .feature-card {
+            background-color: #1c1c1e;
+            padding: 2rem;
+            border-radius: 20px;
+            border: 1px solid rgba(255, 255, 255, 0.05);
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+            text-align: center;
+        }
+
+        .feature-card:hover {
+            transform: translateY(-6px);
+            box-shadow: 0 15px 30px rgba(0, 0, 0, 0.5);
+        }
+
+        .feature-emoji {
+            font-size: 2.5rem;
+            margin-bottom: 1rem;
+        }
+
+        .feature-card h3 {
+            color: #ffffff;
+            font-size: 1.3rem;
+            margin-bottom: 0.8rem;
+        }
+
+        .feature-card p {
+            color: #86868b;
+            font-size: 0.95rem;
+            line-height: 1.5;
+        }
+
+        /* How It Works */
+        .how-it-works {
+            padding: 5rem 0;
+        }
+
+        .steps-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 2rem;
+            text-align: center;
+        }
+
+        .step {
+            padding: 1.5rem;
+        }
+
+        .step-number {
+            width: 48px;
+            height: 48px;
+            background-color: #0071e3;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.3rem;
+            font-weight: 600;
+            margin: 0 auto 1rem auto;
+        }
+
+        .step h3 {
+            color: #ffffff;
+            margin-bottom: 0.5rem;
+        }
+
+        .step p {
+            color: #86868b;
+            font-size: 0.9rem;
+        }
+
+        /* Tech Specs */
+        .specs {
+            background-color: #050505;
+            padding: 5rem 0;
+        }
+
+        .specs-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 2rem;
+            text-align: center;
+        }
+
+        .spec-item {
+            padding: 1.5rem;
+        }
+
+        .spec-value {
+            font-size: 1.5rem;
+            font-weight: 700;
+            color: #ffffff;
+        }
+
+        .spec-label {
+            color: #86868b;
+            font-size: 0.9rem;
+            margin-top: 0.5rem;
+        }
+
+        /* Download Section */
+        .download-section {
+            padding: 5rem 0;
+            text-align: center;
+            border-top: 1px solid rgba(255, 255, 255, 0.05);
+            border-bottom: 1px solid rgba(255, 255, 255, 0.05);
+        }
+
+        .price-badge {
+            font-size: 2rem;
+            font-weight: 700;
+            color: #ffffff;
+            margin-bottom: 1rem;
+        }
+
+        .price-note {
+            color: #86868b;
+            font-size: 0.85rem;
+            margin-bottom: 2rem;
+        }
+
+        /* Footer */
+        footer {
+            text-align: center;
+            padding: 4rem 2rem;
+            color: #86868b;
+            font-size: 0.9rem;
+            border-top: 1px solid rgba(255, 255, 255, 0.05);
+        }
+
+        @media (max-width: 768px) {
+            .hero h1 { font-size: 2.5rem; }
+            .hero .tagline { font-size: 1rem; }
+            .section-title { font-size: 1.8rem; }
+            nav ul { display: none; }
+        }
+    </style>
+</head>
+<body>
+
+<header>
+    <nav>
+        <!-- ✅ 修复：点击 Caleb 回到主页 index.html -->
+        <a href="index.html" class="logo">Caleb</a>
+        <ul>
+            <li><a href="index.html#about">About</a></li>
+            <li><a href="index.html#skills">Skills</a></li>
+            <li><a href="index.html#projects">Projects</a></li>
+            <li><a href="alliance.html">Alliance</a></li>
+            <li><a href="legal.html">Legal</a></li>
+        </ul>
+    </nav>
+</header>
+
+<main>
+    <!-- Hero Section -->
+    <div class="hero container">
+        <div class="app-icon">
+            🥁
+        </div>
+        <h1>TJA Chart Editor</h1>
+        <p class="tagline">Create Taiko no Tatsujin charts in real time. Drag, drop, and start composing.</p>
+        <a href="https://v0-calebstudiomp3tjaconverter.vercel.app/" target="_blank" class="open-btn">
+            🥁 Open Editor
+        </a>
+    </div>
+
+    <!-- Features Section -->
+    <div class="features">
+        <div class="container">
+            <h2 class="section-title">Key Features</h2>
+            <div class="features-grid">
+                <div class="feature-card">
+                    <div class="feature-emoji">🎵</div>
+                    <h3>Drag & Drop Audio</h3>
+                    <p>Simply drop your MP3, WAV, or OGG file into the editor. No complicated import steps.</p>
+                </div>
+                <div class="feature-card">
+                    <div class="feature-emoji">⚡</div>
+                    <h3>Real-Time Charting</h3>
+                    <p>Create and edit Taiko charts instantly with responsive, low-latency controls.</p>
+                </div>
+                <div class="feature-card">
+                    <div class="feature-emoji">📁</div>
+                    <h3>Multiple Formats</h3>
+                    <p>Full support for MP3, WAV, OGG, and other standard audio formats.</p>
+                </div>
+                <div class="feature-card">
+                    <div class="feature-emoji">🌐</div>
+                    <h3>No Installation</h3>
+                    <p>Runs entirely in your browser. Zero downloads, zero setup — just pure creation.</p>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- How It Works Section -->
+    <div class="how-it-works container">
+        <h2 class="section-title">How It Works</h2>
+        <div class="steps-grid">
+            <div class="step">
+                <div class="step-number">1</div>
+                <h3>Drop Audio</h3>
+                <p>Drag any MP3, WAV, or OGG file into the editor window.</p>
+            </div>
+            <div class="step">
+                <div class="step-number">2</div>
+                <h3>Create Chart</h3>
+                <p>Place notes on the timeline to build your Taiko chart.</p>
+            </div>
+            <div class="step">
+                <div class="step-number">3</div>
+                <h3>Export</h3>
+                <p>Download your completed TJA chart file ready for simulation or sharing.</p>
+            </div>
+        </div>
+    </div>
+
+    <!-- Tech Specs Section -->
+    <div class="specs">
+        <div class="container">
+            <h2 class="section-title">Technical Specifications</h2>
+            <div class="specs-grid">
+                <div class="spec-item">
+                    <div class="spec-value">MP3 / WAV / OGG</div>
+                    <div class="spec-label">Audio Formats</div>
+                </div>
+                <div class="spec-item">
+                    <div class="spec-value">TJA</div>
+                    <div class="spec-label">Output Format</div>
+                </div>
+                <div class="spec-item">
+                    <div class="spec-value">Browser Only</div>
+                    <div class="spec-label">No Server Upload</div>
+                </div>
+                <div class="spec-item">
+                    <div class="spec-value">Real-Time</div>
+                    <div class="spec-label">Charting Engine</div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Download / Open Section -->
+    <div class="download-section container">
+        <div class="price-badge">Free • No Account Required</div>
+        <p class="price-note">No hidden costs. No signup. Just pure chart creation.</p>
+        <a href="https://v0-calebstudiomp3tjaconverter.vercel.app/" target="_blank" class="open-btn">
+            🥁 Launch TJA Chart Editor
+        </a>
+        <p style="color: #86868b; font-size: 0.8rem; margin-top: 1.5rem;">
+            Compatible with all modern browsers • Works on desktop and tablet
+        </p>
+    </div>
+</main>
+
+<footer>
+    <p>&copy; 2026 Caleb's Studio. All rights reserved.</p>
+</footer>
+
+</body>
+</html>
