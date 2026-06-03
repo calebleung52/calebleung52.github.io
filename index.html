@@ -20,7 +20,7 @@
             font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
             line-height: 1.6;
             color: #f5f5f7;
-            background-color: #000000; /* 型格全黑背景 */
+            background-color: #000000;
         }
 
         /* 導覽列 */
@@ -47,6 +47,7 @@
             font-size: 1.3rem;
             font-weight: 600;
             color: #ffffff;
+            text-decoration: none;
         }
 
         nav ul {
@@ -66,7 +67,7 @@
             color: #ffffff;
         }
 
-        /* 🚀 新！APPLE PRO 全螢幕沉浸式 Hero 區塊（移走右相，改為大氣置中） */
+        /* APPLE PRO 全螢幕沉浸式 Hero 區塊 */
         .hero-container {
             background-color: #000000;
             min-height: calc(100vh - 70px);
@@ -117,7 +118,6 @@
             letter-spacing: -0.01em;
         }
 
-        /* Apple 雙按鈕導覽排版 */
         .hero-cta-group {
             display: flex;
             gap: 2rem;
@@ -156,7 +156,6 @@
             text-decoration: underline;
         }
 
-        /* 📸 中央下方巨型精選資產展示（發布會主角效果） */
         .hero-main-asset {
             margin-top: 5.5rem;
             width: 100%;
@@ -193,7 +192,6 @@
             color: #ffffff;
         }
 
-        /* About Section */
         .about-content {
             max-width: 800px;
             margin: 0 auto;
@@ -203,7 +201,6 @@
             line-height: 1.8;
         }
 
-        /* Skills Section */
         #skills { background-color: #050505; }
         
         .skills-grid {
@@ -230,7 +227,6 @@
         .skill-card h3 { color: #ffffff; margin-bottom: 1rem; font-size: 1.3rem; }
         .skill-card p { color: #86868b; font-size: 1rem; }
 
-        /* 專案專區與卡片網格 */
         #projects { background-color: #000000; }
         .projects-grid {
             display: grid;
@@ -295,7 +291,6 @@
             min-height: 48px;
         }
 
-        /* Apple 經典藍色下載按鈕 */
         .download-btn {
             display: inline-block;
             background-color: #0071e3;
@@ -311,7 +306,6 @@
         .download-btn:hover { background-color: #0077ed; }
         .download-btn:active { transform: scale(0.96); }
 
-        /* 友情連結與支持者按鈕樣式 */
         .badge-link {
             color: #86868b; 
             text-decoration: none; 
@@ -326,7 +320,6 @@
             background-color: rgba(255, 255, 255, 0.02);
         }
 
-        /* Footer */
         footer {
             text-align: center;
             padding: 4rem 2rem;
@@ -335,7 +328,6 @@
             border-top: 1px solid rgba(255, 255, 255, 0.05);
         }
 
-        /* 響應式排版 */
         @media (max-width: 768px) {
             .hero-text h1 { font-size: 2.8rem; }
             .hero-text p { font-size: 1.15rem; margin-bottom: 2.5rem; }
@@ -350,7 +342,7 @@
 
 <header>
     <nav>
-        <a href="#" class="logo" style="text-decoration: none;">Caleb</a>
+        <a href="#" class="logo">Caleb</a>
         <ul>
             <li><a href="#about">About</a></li>
             <li><a href="#skills">Skills</a></li>
@@ -361,7 +353,7 @@
     </nav>
 </header>
 
-    <!-- 🚀 APPLE PRO IMMERSIVE HERO SECTION -->
+    <!-- HERO 區塊 -->
     <div class="hero-container">
         <div class="hero-content">
             <p class="hero-badge">Introducing Caleb Studio</p>
@@ -374,7 +366,6 @@
                 <a href="alliance.html" class="secondary-link">Explore Alliance &rarr;</a>
             </div>
             
-            <!-- 📸 發布會核心展示：將 hero_main.jpg 放喺正中央下方 -->
             <div class="hero-main-asset">
                 <img src="hero_main.jpg" alt="Caleb Studio Key Asset Showcase" onerror="this.style.display='none';">
             </div>
@@ -412,7 +403,7 @@
         </div>
     </section>
 
-    <!-- Projects Section -->
+    <!-- Projects Section（已删除 OpenBVE，已加入 App 卡片）-->
     <section id="projects">
         <div class="container">
             <h2>My Projects</h2>
@@ -454,7 +445,6 @@
                     </div>
                 </div>
 
-                <!-- 💡 盲點修復：幫你補返 <p> 標籤，確保卡片高度絕對一致 -->
                 <div class="project-card">
                     <div class="project-image-box">
                         <img src="project4.jpg" alt="My Photography" onerror="this.style.display='none';">
@@ -466,9 +456,32 @@
                         <a href="gallery.html" target="_blank" class="download-btn">View Gallery 👁️</a>
                     </div>
                 </div>
+
+                <!-- 🌟 全新 App 项目卡片 -->
+                <div class="project-card">
+                    <div class="project-image-box">
+                        <img src="app_cover.jpg" alt="Caleb Studio App" onerror="this.style.display='none';">
+                        <span class="fallback-emoji">📱</span>
+                    </div>
+                    <div class="project-content">
+                        <h3>Caleb Studio App</h3>
+                        <p>官方出品的原生 iOS App — 极致性能、精美界面、隐私优先。体验 Caleb Studio 的全部创作工具。</p>
+                        <div style="display: flex; gap: 1rem; align-items: center; flex-wrap: wrap;">
+                            <a href="#" class="download-btn" style="background-color: #0071e3;">
+                                📲 下载 App
+                            </a>
+                            <a href="app.html" style="color: #2997ff; text-decoration: none; font-size: 0.85rem;">
+                                了解更多 →
+                            </a>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+        </div>
     </section>
 
-    <!-- Allies Section -->
+    <!-- Allies Section（已删除 Hayes Wong，添加了 Clevis Liu）-->
     <section id="allies" style="background-color: #050505; padding: 4rem 2rem; border-top: 1px solid rgba(255, 255, 255, 0.05);">
         <div class="container" style="text-align: center;">
             <h2 style="margin-bottom: 2rem;">My Allies</h2>
@@ -479,7 +492,7 @@
         </div>
     </section>
 
-    <!-- Supporters Section (💡 盲點修復：ID 由 allies 改為 supporters) -->
+    <!-- Supporters Section -->
     <section id="supporters" style="background-color: #050505; padding: 4rem 2rem; border-top: 1px solid rgba(255, 255, 255, 0.05);">
         <div class="container" style="text-align: center;">
             <h2 style="margin-bottom: 2rem;">Supporters</h2>
