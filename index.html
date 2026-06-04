@@ -5,6 +5,27 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Caleb's Studio - Caleb</title>
     <style>
+        /* ========== 平滑滚动 ========== */
+        html {
+            scroll-behavior: smooth;
+        }
+
+        /* ========== 页面淡入动画 ========== */
+        body {
+            animation: fadeIn 0.4s ease-out;
+        }
+
+        @keyframes fadeIn {
+            from {
+                opacity: 0;
+                transform: translateY(10px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
         /* ========== 深色模式（默认） ========== */
         :root {
             --bg-primary: #000000;
@@ -55,7 +76,7 @@
             transition: background-color 0.3s ease, color 0.3s ease;
         }
 
-        /* 导肮列 */
+        /* 导航栏 */
         header {
             background: var(--nav-bg);
             backdrop-filter: blur(20px);
@@ -561,7 +582,7 @@
                     </div>
                 </div>
 
-                <!-- 🌟 NEW: GameSync 项目卡片 -->
+                <!-- GameSync 项目卡片 -->
                 <div class="project-card">
                     <div class="project-image-box">
                         <img src="gamesync_cover.jpg" alt="GameSync Hub" onerror="this.style.display='none';">
