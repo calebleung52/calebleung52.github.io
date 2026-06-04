@@ -5,50 +5,67 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>GameSync - Ala Mobile & TJA Hub | Caleb Studio</title>
     <style>
+        /* ========== 深色模式（默认） ========== */
         :root {
             --bg-primary: #000000;
             --bg-secondary: #050505;
             --bg-card: #1c1c1e;
+            --bg-card-hover: #2c2c2e;
             --text-primary: #f5f5f7;
             --text-secondary: #a1a1a6;
             --text-tertiary: #86868b;
             --border-color: rgba(255, 255, 255, 0.1);
+            --border-card: rgba(255, 255, 255, 0.05);
             --button-bg: #0071e3;
             --button-hover: #147ce5;
+            --premium-bg: rgba(255, 69, 58, 0.1);
+            --premium-border: #ff453a;
             --link-color: #2997ff;
             --nav-bg: rgba(22, 22, 23, 0.8);
-            --premium-bg: rgba(255, 69, 58, 0.05);
-            --premium-border: #ff453a;
+            --shadow-color: rgba(0, 0, 0, 0.6);
+            --preview-bg: rgba(255, 255, 255, 0.03);
         }
 
+        /* ========== 浅色模式 ========== */
         body.light-mode {
             --bg-primary: #f5f5f7;
             --bg-secondary: #e8e8ed;
             --bg-card: #ffffff;
+            --bg-card-hover: #f5f5f7;
             --text-primary: #1d1d1f;
             --text-secondary: #6e6e73;
             --text-tertiary: #86868b;
             --border-color: rgba(0, 0, 0, 0.1);
+            --border-card: rgba(0, 0, 0, 0.05);
             --button-bg: #0071e3;
             --button-hover: #147ce5;
+            --premium-bg: rgba(255, 69, 58, 0.05);
+            --premium-border: #ff453a;
             --link-color: #0071e3;
             --nav-bg: rgba(255, 255, 255, 0.8);
-            --premium-bg: rgba(255, 69, 58, 0.08);
+            --shadow-color: rgba(0, 0, 0, 0.1);
+            --preview-bg: rgba(0, 0, 0, 0.02);
         }
 
-        * { margin: 0; padding: 0; box-sizing: border-box; }
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
 
         body {
             font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
-            line-height: 1.6;
+            line-height: 1.5;
             color: var(--text-primary);
             background-color: var(--bg-primary);
-            transition: all 0.3s ease;
+            transition: background-color 0.3s ease, color 0.3s ease;
         }
 
+        /* 导航栏 */
         header {
             background: var(--nav-bg);
             backdrop-filter: blur(20px);
+            -webkit-backdrop-filter: blur(20px);
             position: sticky;
             top: 0;
             z-index: 100;
@@ -61,7 +78,7 @@
             display: flex;
             justify-content: space-between;
             align-items: center;
-            padding: 1rem 2rem;
+            padding: 0.8rem 2rem;
         }
 
         nav .logo {
@@ -90,6 +107,7 @@
 
         nav a:hover { color: var(--text-primary); }
 
+        /* 主题切换 */
         .theme-toggle {
             background: none;
             border: none;
@@ -101,62 +119,65 @@
             justify-content: center;
             color: var(--text-primary);
         }
-
         .theme-toggle svg { width: 22px; height: 22px; stroke: currentColor; fill: none; }
         body.light-mode .theme-toggle .moon-icon { display: block; }
         body.light-mode .theme-toggle .sun-icon { display: none; }
         .theme-toggle .moon-icon { display: none; }
         .theme-toggle .sun-icon { display: block; }
 
+        /* Hero 区域 */
         .hero {
             text-align: center;
-            padding: 4rem 2rem 2rem;
+            padding: 6rem 2rem 4rem;
         }
-
         .hero h1 {
-            font-size: 3rem;
+            font-size: 3.5rem;
             font-weight: 700;
             letter-spacing: -0.03em;
             background: linear-gradient(180deg, var(--text-primary) 0%, var(--text-tertiary) 100%);
             -webkit-background-clip: text;
             -webkit-text-fill-color: transparent;
-            margin-bottom: 0.5rem;
+            margin-bottom: 1rem;
         }
-
         .hero p {
-            font-size: 1.1rem;
+            font-size: 1.2rem;
             color: var(--text-tertiary);
+            max-width: 550px;
+            margin: 0 auto;
         }
 
+        /* Tab 切换 */
         .category-tabs {
             display: flex;
             justify-content: center;
-            gap: 1rem;
-            margin: 2rem 0;
+            gap: 0.8rem;
+            margin: 2rem 0 3rem;
         }
-
         .tab-btn {
             background: var(--bg-card);
             border: 1px solid var(--border-color);
             color: var(--text-secondary);
             padding: 0.7rem 2rem;
             border-radius: 980px;
-            font-size: 1rem;
+            font-size: 0.95rem;
             font-weight: 500;
             cursor: pointer;
-            transition: all 0.3s;
+            transition: all 0.2s ease;
         }
-
         .tab-btn.active {
             background: var(--button-bg);
             color: white;
             border-color: var(--button-bg);
         }
+        .tab-btn:hover:not(.active) {
+            background: var(--border-color);
+        }
 
+        /* 主容器 */
         .container {
-            max-width: 1000px;
+            max-width: 1100px;
             margin: 0 auto;
-            padding: 0 2rem 4rem;
+            padding: 0 2rem 5rem;
         }
 
         /* 两栏布局 */
@@ -165,26 +186,31 @@
             grid-template-columns: 1fr 1fr;
             gap: 2rem;
         }
-
         .column {
             background: var(--bg-card);
-            border-radius: 20px;
+            border-radius: 24px;
             border: 1px solid var(--border-color);
             overflow: hidden;
+            transition: transform 0.2s ease, box-shadow 0.2s ease;
+        }
+        .column:hover {
+            transform: translateY(-4px);
+            box-shadow: 0 20px 40px var(--shadow-color);
         }
 
+        /* 列头 */
         .column-header {
-            padding: 1.5rem;
+            padding: 1.8rem;
             text-align: center;
             border-bottom: 1px solid var(--border-color);
+            background: var(--bg-secondary);
         }
-
         .column-header h2 {
-            font-size: 1.5rem;
+            font-size: 1.6rem;
+            font-weight: 600;
             margin-bottom: 0.3rem;
         }
-
-        .column-header .free-badge {
+        .free-badge {
             display: inline-block;
             background: #30d158;
             color: white;
@@ -194,8 +220,7 @@
             font-weight: 600;
             margin-top: 0.5rem;
         }
-
-        .column-header .premium-badge {
+        .premium-badge {
             display: inline-block;
             background: #ff453a;
             color: white;
@@ -206,98 +231,141 @@
             margin-top: 0.5rem;
         }
 
-        /* 免费内容列表 */
-        .free-list {
-            padding: 1rem;
-        }
-
-        .free-item {
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            padding: 1rem;
+        /* 顶部下载按钮区域 */
+        .top-download {
+            padding: 1.5rem;
+            text-align: center;
             border-bottom: 1px solid var(--border-color);
+            background: var(--preview-bg);
         }
-
-        .free-item:last-child {
-            border-bottom: none;
-        }
-
-        .item-info h4 {
+        .top-download-btn {
+            display: inline-block;
+            background: var(--button-bg);
+            color: white;
+            text-decoration: none;
+            padding: 0.8rem 2rem;
+            border-radius: 980px;
             font-size: 1rem;
-            margin-bottom: 0.2rem;
+            font-weight: 600;
+            transition: all 0.2s;
         }
-
-        .item-info p {
+        .top-download-btn:hover {
+            background: var(--button-hover);
+            transform: scale(1.02);
+        }
+        .top-download p {
+            margin-top: 0.8rem;
             font-size: 0.8rem;
             color: var(--text-tertiary);
         }
 
-        .download-link {
-            background: var(--button-bg);
-            color: white;
-            text-decoration: none;
-            padding: 0.4rem 1rem;
-            border-radius: 980px;
-            font-size: 0.8rem;
-            font-weight: 500;
+        /* 预览列表（无按钮） */
+        .preview-list {
+            padding: 0.5rem;
+        }
+        .preview-item {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 1rem;
+            margin: 0.5rem;
+            border-radius: 16px;
+            background: var(--preview-bg);
+            border: 1px solid var(--border-color);
             transition: background 0.2s;
         }
-
-        .download-link:hover {
-            background: var(--button-hover);
+        .preview-item:hover {
+            background: var(--bg-card-hover);
         }
-
-        /* 高级内容预览 */
-        .preview-list {
-            padding: 1rem;
-        }
-
-        .preview-item {
-            padding: 1rem;
-            border-bottom: 1px solid var(--border-color);
-            background: var(--premium-bg);
-        }
-
-        .preview-item:last-child {
-            border-bottom: none;
-        }
-
-        .preview-item h4 {
+        .item-info h4 {
             font-size: 1rem;
-            color: #ff453a;
-            margin-bottom: 0.3rem;
+            font-weight: 600;
+            margin-bottom: 0.2rem;
+        }
+        .item-info p {
+            font-size: 0.8rem;
+            color: var(--text-tertiary);
+        }
+        .preview-badge {
+            font-size: 0.7rem;
+            color: var(--text-tertiary);
+            background: var(--border-color);
+            padding: 0.3rem 0.8rem;
+            border-radius: 980px;
         }
 
-        .preview-item p {
-            font-size: 0.85rem;
+        /* 高级内容 */
+        .premium-list {
+            padding: 0.5rem;
+        }
+        .premium-item {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 1rem;
+            margin: 0.5rem;
+            border-radius: 16px;
+            background: var(--premium-bg);
+            border: 1px solid var(--premium-border);
+            transition: all 0.2s;
+        }
+        .premium-item:hover {
+            transform: scale(1.01);
+            background: rgba(255, 69, 58, 0.15);
+        }
+        .premium-info h4 {
+            font-size: 1rem;
+            font-weight: 600;
+            color: #ff453a;
+            margin-bottom: 0.2rem;
+        }
+        .premium-info p {
+            font-size: 0.8rem;
             color: var(--text-secondary);
         }
-
-        .preview-tag {
-            display: inline-block;
+        .price-tag {
             font-size: 0.7rem;
             color: #ff453a;
-            margin-top: 0.3rem;
+            margin-top: 0.2rem;
+        }
+        .buy-btn {
+            background: #ff453a;
+            color: white;
+            border: none;
+            padding: 0.5rem 1.2rem;
+            border-radius: 980px;
+            font-size: 0.8rem;
+            font-weight: 600;
+            cursor: pointer;
+            transition: all 0.2s;
+        }
+        .buy-btn:hover {
+            background: #ff665c;
+            transform: scale(1.02);
         }
 
         .coming-soon {
             text-align: center;
             padding: 1.5rem;
             color: var(--text-tertiary);
-            font-style: italic;
+            font-size: 0.85rem;
+            border-top: 1px solid var(--border-color);
+            margin-top: 0.5rem;
         }
 
         footer {
             text-align: center;
             padding: 3rem 2rem;
             color: var(--text-tertiary);
+            font-size: 0.8rem;
             border-top: 1px solid var(--border-color);
         }
 
         @media (max-width: 768px) {
-            .split-layout { grid-template-columns: 1fr; }
-            .hero h1 { font-size: 2rem; }
+            .split-layout { grid-template-columns: 1fr; gap: 1.5rem; }
+            .hero h1 { font-size: 2.2rem; }
+            .hero { padding: 4rem 2rem 2rem; }
+            .tab-btn { padding: 0.5rem 1.2rem; font-size: 0.85rem; }
             nav ul li:not(:last-child) { display: none; }
         }
     </style>
@@ -337,7 +405,7 @@
 
 <div class="hero">
     <h1>🎮 GameSync</h1>
-    <p>Free Ala Mobile setups & Taiko TJA charts. Premium coming soon.</p>
+    <p>One hub for Ala Mobile liveries & Taiko TJA charts.</p>
 </div>
 
 <div class="category-tabs">
@@ -346,91 +414,114 @@
 </div>
 
 <div class="container">
-    <div id="dynamic-content">
-        <!-- JS 会动态渲染这里 -->
-    </div>
+    <div id="dynamic-content"></div>
 </div>
 
 <footer>
-    <p>© 2026 Caleb Studio · GameSync · Free content + Premium upgrades coming soon</p>
+    <p>© 2026 Caleb Studio · GameSync · Free downloads · Premium upgrades via in-app purchase</p>
 </footer>
 
 <script>
-    // ==================== 内容数据 ====================
+    // ==================== 在这里填写你的 OneDrive 链接 ====================
+    const FREE_DOWNLOAD_LINKS = {
+        ala: "https://1drv.ms/f/c/15eb311a8dd976a8/IgCh5JA_STW_Qqt7fe0YkZTxATIZiY-i-r4xv_H4l7MfvHg?e=EYhQpm",
+        tja: "https://1drv.ms/f/c/15eb311a8dd976a8/IgB6MCJMOB4ORJMpGSWU5XZ4AUeqEgUbjq0U-BG0bBWM6WE?e=3YQZOv"
+    };
+    // ====================================================================
+
     const contentData = {
         ala: {
-            free: [
-                { name: "McLaren Senna GTR", desc: "Satin blue with carbon accents", link: "https://1drv.ms/f/c/15eb311a8dd976a8/IgCh5JA_STW_Qqt7fe0YkZTxATIZiY-i-r4xv_H4l7MfvHg?e=EYhQpm" },
-                { name: "Ferrari F40 Competizione", desc: "Classic red with gold rims", link: "#" },
-                { name: "Nissan GT-R Nismo", desc: "R35 spec-V inspired livery", link: "#" },
-                { name: "Lamborghini Huracán STO", desc: "Verde Mantis green", link: "#" }
+            freePreview: [
+                { name: "McLaren Senna GTR", desc: "Satin blue with carbon accents" },
+                { name: "Ferrari F40 Competizione", desc: "Classic red with gold rims" },
+                { name: "Nissan GT-R Nismo", desc: "R35 spec-V inspired livery" },
+                { name: "Lamborghini Huracán STO", desc: "Verde Mantis green" }
             ],
             premium: [
-                { name: "Porsche 911 GT3 RS", desc: "Mega rare 'Ruby Star' custom paint + performance tune" },
-                { name: "Ala Edition: Carbon Series", desc: "Full carbon fiber body + engine map + suspension setup" },
-                { name: "VIP Pack: 10 Exclusive Liveries", desc: "Limited designs from real racing teams" },
-                { name: "Pro Setup Tool", desc: "Drag-and-drop performance tuning interface" }
+                { name: "Porsche 911 GT3 RS", desc: "Ruby Star custom paint + performance tune", price: "$1.99" },
+                { name: "Ala Edition: Carbon Series", desc: "Full carbon fiber + engine map + suspension", price: "$2.99" },
+                { name: "VIP Pack: 10 Exclusive Liveries", desc: "Limited designs from real racing teams", price: "$4.99" },
+                { name: "Pro Setup Tool", desc: "Drag-and-drop performance tuning interface", price: "$3.99" }
             ]
         },
         tja: {
-            free: [
-                { name: "紅蓮華 - LiSA", desc: "鬼滅の刃 OP · ★7 · Oni chart included", link: "#" },
-                { name: " idol - YOASOBI", desc: "★8 · Full song + Ura chart", link: "#" },
-                { name: "Bling-Bang-Bang-Born - Creepy Nuts", desc: "★8 · Mashle OP · Includes practice chart", link: "#" },
-                { name: "God-ish - PinocchioP", desc: "★7 · Vocaloid classic", link: "#" }
+            freePreview: [
+                { name: "紅蓮華 - LiSA", desc: "鬼滅の刃 OP · ★7 · Oni chart included" },
+                { name: "アイドル - YOASOBI", desc: "★8 · Full song + Ura chart" },
+                { name: "Bling-Bang-Bang-Born", desc: "Creepy Nuts · ★8 · Mashle OP" },
+                { name: "God-ish - PinocchioP", desc: "★7 · Vocaloid classic" }
             ],
             premium: [
-                { name: "KICK BACK - 米津玄師", desc: "Chainsaw Man OP · ★9 + ★10 Ura · 4K video sync" },
-                { name: "MEGALOVANIA (Undertale)", desc: "★10 Sans fight theme · Hardest chart ever" },
-                { name: "Song Pack: Anime Hits Vol.1", desc: "5 songs (Jujutsu Kaisen, Oshi no Ko, Spy x Family)" },
-                { name: "TJA Editor Pro", desc: "Mobile chart editor + auto BPM detection + cloud save" }
+                { name: "KICK BACK - 米津玄師", desc: "Chainsaw Man OP · ★9 + ★10 Ura", price: "$1.99" },
+                { name: "MEGALOVANIA", desc: "Undertale · ★10 · Hardest chart ever", price: "$1.99" },
+                { name: "Song Pack: Anime Hits Vol.1", desc: "5 songs (JJK, Oshi no Ko, Spy x Family)", price: "$4.99" },
+                { name: "TJA Editor Pro", desc: "Mobile chart editor + auto BPM + cloud save", price: "$3.99" }
             ]
         }
     };
 
     let currentCategory = "ala";
 
+    function showPurchaseAlert(itemName, price) {
+        alert(`✨ Purchase Confirmation ✨\n\n${itemName}\n${price}\n\nThis is a demo. In production, this would open Apple Pay / App Store purchase flow.`);
+    }
+
     function renderContent() {
         const container = document.getElementById("dynamic-content");
         const data = contentData[currentCategory];
+        const downloadLink = FREE_DOWNLOAD_LINKS[currentCategory];
         
         const html = `
             <div class="split-layout">
-                <!-- 左侧：免费内容 -->
+                <!-- 左侧：免费区域 -->
                 <div class="column">
                     <div class="column-header">
                         <h2>🎁 Free</h2>
                         <div class="free-badge">Download Now</div>
                     </div>
-                    <div class="free-list">
-                        ${data.free.map(item => `
-                            <div class="free-item">
+                    <!-- 顶部绿色下载按钮 -->
+                    <div class="top-download">
+                        <a href="${downloadLink}" class="top-download-btn" target="_blank">
+                            ⬇️ Download Now
+                        </a>
+                        <p>All free ${currentCategory === "ala" ? "liveries" : "charts"} in one click</p>
+                    </div>
+                    <!-- 预览列表（无按钮） -->
+                    <div class="preview-list">
+                        ${data.freePreview.map(item => `
+                            <div class="preview-item">
                                 <div class="item-info">
                                     <h4>${item.name}</h4>
                                     <p>${item.desc}</p>
                                 </div>
-                                <a href="${item.link}" class="download-link" target="_blank">⬇️ Get</a>
-                            </div>
-                        `).join('')}
-                    </div>
-                </div>
-
-                <!-- 右侧：高级内容预览 -->
-                <div class="column">
-                    <div class="column-header">
-                        <h2>💎 Premium</h2>
-                        <div class="premium-badge">Coming Soon</div>
-                    </div>
-                    <div class="preview-list">
-                        ${data.premium.map(item => `
-                            <div class="preview-item">
-                                <h4>✨ ${item.name}</h4>
-                                <p>${item.desc}</p>
-                                <div class="preview-tag">🔒 Unlock with in-app purchase</div>
+                                <div class="preview-badge">✨ Included</div>
                             </div>
                         `).join('')}
                         <div class="coming-soon">
-                            More content added monthly · Subscribe for updates
+                            📦 More ${currentCategory === "ala" ? "liveries" : "charts"} added regularly
+                        </div>
+                    </div>
+                </div>
+
+                <!-- 右侧：高级区域 -->
+                <div class="column">
+                    <div class="column-header">
+                        <h2>💎 Premium</h2>
+                        <div class="premium-badge">In-App Purchase</div>
+                    </div>
+                    <div class="premium-list">
+                        ${data.premium.map(item => `
+                            <div class="premium-item">
+                                <div class="premium-info">
+                                    <h4>✨ ${item.name}</h4>
+                                    <p>${item.desc}</p>
+                                    <div class="price-tag">${item.price}</div>
+                                </div>
+                                <button class="buy-btn" onclick="showPurchaseAlert('${item.name}', '${item.price}')">Buy</button>
+                            </div>
+                        `).join('')}
+                        <div class="coming-soon">
+                            🔔 More premium content added monthly
                         </div>
                     </div>
                 </div>
@@ -459,7 +550,6 @@
         localStorage.setItem("theme", document.body.classList.contains("light-mode") ? "light" : "dark");
     });
 
-    // 初次渲染
     renderContent();
 </script>
 
