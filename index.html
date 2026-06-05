@@ -5,28 +5,10 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Caleb's Studio - Caleb</title>
     <style>
-        /* ========== 平滑滚动 ========== */
-        html {
-            scroll-behavior: smooth;
-        }
+        html { scroll-behavior: smooth; }
+        body { animation: fadeIn 0.4s ease-out; }
+        @keyframes fadeIn { from { opacity: 0; transform: translateY(10px); } to { opacity: 1; transform: translateY(0); } }
 
-        /* ========== 页面淡入动画 ========== */
-        body {
-            animation: fadeIn 0.4s ease-out;
-        }
-
-        @keyframes fadeIn {
-            from {
-                opacity: 0;
-                transform: translateY(10px);
-            }
-            to {
-                opacity: 1;
-                transform: translateY(0);
-            }
-        }
-
-        /* ========== 深色模式（默认） ========== */
         :root {
             --bg-primary: #000000;
             --bg-secondary: #050505;
@@ -44,7 +26,6 @@
             --hero-gradient: linear-gradient(180deg, #ffffff 0%, #a1a1a6 100%);
         }
 
-        /* ========== 浅色模式 ========== */
         body.light-mode {
             --bg-primary: #f5f5f7;
             --bg-secondary: #e8e8ed;
@@ -55,48 +36,37 @@
             --border-color: rgba(0, 0, 0, 0.1);
             --border-card: rgba(0, 0, 0, 0.05);
             --button-bg: #0071e3;
-            --button-hover: #147ce5;
             --link-color: #0071e3;
             --nav-bg: rgba(255, 255, 255, 0.8);
             --shadow-color: rgba(0, 0, 0, 0.1);
             --hero-gradient: linear-gradient(180deg, #1d1d1f 0%, #6e6e73 100%);
         }
 
-        * {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
-        }
-          
+        * { margin: 0; padding: 0; box-sizing: border-box; }
         body {
             font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
             line-height: 1.6;
             color: var(--text-primary);
             background-color: var(--bg-primary);
-            transition: background-color 0.3s ease, color 0.3s ease;
+            transition: all 0.3s ease;
         }
 
-        /* 导航栏 */
         header {
             background: var(--nav-bg);
             backdrop-filter: blur(20px);
-            -webkit-backdrop-filter: blur(20px);
             position: sticky;
             top: 0;
             z-index: 100;
             border-bottom: 1px solid var(--border-color);
-            transition: background 0.3s ease;
         }
-
         nav {
             max-width: 1200px;
             margin: 0 auto;
             display: flex;
             justify-content: space-between;
             align-items: center;
-            padding: 1rem 2rem;
+            padding: 0.8rem 2rem;
         }
-        
         nav .logo {
             font-size: 1.3rem;
             font-weight: 600;
@@ -105,62 +75,36 @@
             display: flex;
             align-items: center;
             gap: 0.5rem;
-            transition: opacity 0.3s;
         }
-
-        nav .logo:hover {
-            opacity: 0.8;
-        }
-
         nav ul {
             list-style: none;
             display: flex;
-            gap: 2rem;
+            gap: 1.5rem;
             align-items: center;
+            flex-wrap: wrap;
         }
-
         nav a {
             color: var(--text-secondary);
             text-decoration: none;
             font-size: 0.9rem;
             transition: color 0.3s;
         }
+        nav a:hover { color: var(--text-primary); }
 
-        nav a:hover {
-            color: var(--text-primary);
-        }
-
-        /* 主题切换按钮 */
         .theme-toggle {
             background: none;
             border: none;
             cursor: pointer;
             padding: 0.5rem;
             border-radius: 50%;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            transition: background-color 0.3s;
             color: var(--text-primary);
         }
-
-        .theme-toggle:hover {
-            background-color: var(--border-color);
-        }
-
-        .theme-toggle svg {
-            width: 22px;
-            height: 22px;
-            stroke: currentColor;
-            fill: none;
-        }
-
+        .theme-toggle svg { width: 22px; height: 22px; stroke: currentColor; fill: none; }
         body.light-mode .theme-toggle .moon-icon { display: block; }
         body.light-mode .theme-toggle .sun-icon { display: none; }
         .theme-toggle .moon-icon { display: none; }
         .theme-toggle .sun-icon { display: block; }
 
-        /* Hero */
         .hero-container {
             background-color: var(--bg-primary);
             min-height: calc(100vh - 70px);
@@ -170,262 +114,51 @@
             align-items: center;
             text-align: center;
             padding: 6rem 2rem;
-            position: relative;
-            overflow: hidden;
         }
+        .hero-content { max-width: 1050px; margin: 0 auto; display: flex; flex-direction: column; align-items: center; }
+        .hero-badge { font-size: 1.1rem; font-weight: 600; color: var(--link-color); letter-spacing: 0.05em; margin-bottom: 1.2rem; text-transform: uppercase; }
+        .hero-text h1 { font-size: 4.8rem; font-weight: 700; line-height: 1.1; letter-spacing: -0.04em; margin-bottom: 1.5rem; background: var(--hero-gradient); -webkit-background-clip: text; -webkit-text-fill-color: transparent; }
+        .hero-text p { font-size: 1.4rem; color: var(--text-tertiary); max-width: 680px; line-height: 1.6; margin-bottom: 3.5rem; }
+        .hero-cta-group { display: flex; gap: 2rem; align-items: center; }
+        .cta-button { display: inline-block; background-color: var(--button-bg); color: #ffffff; padding: 0.9rem 2.5rem; border-radius: 980px; text-decoration: none; font-weight: 500; transition: all 0.3s; }
+        .cta-button:hover { background-color: var(--button-hover); transform: scale(1.02); }
+        .secondary-link { display: inline-block; color: var(--link-color); font-size: 1.05rem; font-weight: 500; text-decoration: none; }
+        .secondary-link:hover { color: var(--button-hover); text-decoration: underline; }
+        .hero-main-asset { margin-top: 5.5rem; width: 100%; max-width: 950px; }
+        .hero-main-asset img { width: 100%; border-radius: 20px; border: 1px solid var(--border-color); box-shadow: 0 30px 60px var(--shadow-color); }
 
-        .hero-content {
-            max-width: 1050px;
-            margin: 0 auto;
-            display: flex;
-            flex-direction: column;
-            align-items: center;
-        }
-
-        .hero-badge {
-            font-size: 1.1rem;
-            font-weight: 600;
-            color: var(--link-color);
-            letter-spacing: 0.05em;
-            margin-bottom: 1.2rem;
-            text-transform: uppercase;
-        }
-
-        .hero-text h1 {
-            font-size: 4.8rem;
-            font-weight: 700;
-            line-height: 1.1;
-            letter-spacing: -0.04em;
-            margin-bottom: 1.5rem;
-            background: var(--hero-gradient);
-            -webkit-background-clip: text;
-            -webkit-text-fill-color: transparent;
-        }
-
-        .hero-text p {
-            font-size: 1.4rem;
-            color: var(--text-tertiary);
-            max-width: 680px;
-            line-height: 1.6;
-            margin-bottom: 3.5rem;
-            letter-spacing: -0.01em;
-        }
-
-        .hero-cta-group {
-            display: flex;
-            gap: 2rem;
-            align-items: center;
-            z-index: 10;
-        }
-
-        .cta-button {
-            display: inline-block;
-            background-color: var(--button-bg);
-            color: #ffffff;
-            padding: 0.9rem 2.5rem;
-            font-size: 1.05rem;
-            border-radius: 980px;
-            text-decoration: none;
-            font-weight: 500;
-            transition: all 0.3s cubic-bezier(0.25, 1, 0.5, 1);
-        }
-
-        .cta-button:hover {
-            background-color: var(--button-hover);
-            transform: scale(1.02);
-        }
-
-        .secondary-link {
-            display: inline-block;
-            color: var(--link-color);
-            font-size: 1.05rem;
-            font-weight: 500;
-            text-decoration: none;
-            transition: color 0.3s;
-        }
-
-        .secondary-link:hover {
-            color: var(--button-hover);
-            text-decoration: underline;
-        }
-
-        .hero-main-asset {
-            margin-top: 5.5rem;
-            width: 100%;
-            max-width: 950px;
-            padding: 0 1rem;
-        }
-
-        .hero-main-asset img {
-            width: 100%;
-            height: auto;
-            max-height: 480px;
-            object-fit: cover;
-            border-radius: 20px;
-            border: 1px solid var(--border-color);
-            box-shadow: 0 30px 60px var(--shadow-color);
-        }
-
-        .container {
-            max-width: 1200px;
-            margin: 0 auto;
-            padding: 0 2rem;
-        }
-
-        section {
-            padding: 6rem 0;
-        }
-
-        section h2 {
-            font-size: 2.5rem;
-            font-weight: 600;
-            margin-bottom: 3rem;
-            text-align: center;
-            color: var(--text-primary);
-        }
-
-        .about-content {
-            max-width: 800px;
-            margin: 0 auto;
-            text-align: center;
-            font-size: 1.2rem;
-            color: var(--text-secondary);
-            line-height: 1.8;
-        }
-
+        .container { max-width: 1200px; margin: 0 auto; padding: 0 2rem; }
+        section { padding: 6rem 0; }
+        section h2 { font-size: 2.5rem; font-weight: 600; margin-bottom: 3rem; text-align: center; color: var(--text-primary); }
+        .about-content { max-width: 800px; margin: 0 auto; text-align: center; font-size: 1.2rem; color: var(--text-secondary); line-height: 1.8; }
         #skills { background-color: var(--bg-secondary); }
-        
-        .skills-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
-            gap: 2rem;
-            padding: 2rem;
-        }
-
-        .skill-card {
-            background-color: var(--bg-card);
-            padding: 2.5rem 2rem;
-            border-radius: 18px;
-            text-align: center;
-            border: 1px solid var(--border-card);
-            transition: transform 0.3s cubic-bezier(0.25, 0.1, 0.25, 1);
-            cursor: default;
-        }
-
-        .skill-card:hover {
-            transform: scale(1.03);
-        }
-
+        .skills-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(220px, 1fr)); gap: 2rem; padding: 2rem; }
+        .skill-card { background-color: var(--bg-card); padding: 2.5rem 2rem; border-radius: 18px; text-align: center; border: 1px solid var(--border-card); transition: transform 0.3s; cursor: default; }
+        .skill-card:hover { transform: scale(1.03); }
         .skill-card h3 { color: var(--text-primary); margin-bottom: 1rem; font-size: 1.3rem; }
         .skill-card p { color: var(--text-tertiary); font-size: 1rem; }
 
         #projects { background-color: var(--bg-primary); }
-        .projects-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
-            gap: 2.5rem;
-        }
-
-        .project-card {
-            background-color: var(--bg-card);
-            border-radius: 20px;
-            overflow: hidden;
-            border: 1px solid var(--border-card);
-            transition: transform 0.3s ease, box-shadow 0.3s ease;
-        }
-
-        .project-card:hover {
-            transform: translateY(-6px);
-            box-shadow: 0 15px 30px var(--shadow-color);
-        }
-
-        .project-image-box {
-            width: 100%;
-            height: 220px;
-            background: var(--bg-secondary);
-            position: relative;
-            overflow: hidden;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            border-bottom: 1px solid var(--border-card);
-        }
-
-        .project-image-box img {
-            width: 100%;
-            height: 100%;
-            object-fit: cover;
-            position: absolute;
-            top: 0;
-            left: 0;
-            z-index: 2;
-        }
-
-        .fallback-emoji {
-            font-size: 3.5rem;
-            z-index: 1;
-        }
-
-        .project-content {
-            padding: 2rem;
-        }
-
-        .project-content h3 {
-            color: var(--text-primary);
-            margin-bottom: 0.6rem;
-            font-size: 1.4rem;
-        }
-
-        .project-content p {
-            color: var(--text-tertiary);
-            margin-bottom: 2rem;
-            font-size: 1rem;
-            min-height: 48px;
-        }
-
-        .download-btn {
-            display: inline-block;
-            background-color: var(--button-bg);
-            color: #ffffff;
-            text-decoration: none;
-            padding: 0.7rem 1.8rem;
-            border-radius: 980px;
-            font-size: 0.9rem;
-            font-weight: 500;
-            transition: background-color 0.2s, transform 0.1s ease;
-        }
-
+        .projects-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(320px, 1fr)); gap: 2.5rem; }
+        .project-card { background-color: var(--bg-card); border-radius: 20px; overflow: hidden; border: 1px solid var(--border-card); transition: all 0.3s; }
+        .project-card:hover { transform: translateY(-6px); box-shadow: 0 15px 30px var(--shadow-color); }
+        .project-image-box { width: 100%; height: 220px; background: var(--bg-secondary); display: flex; align-items: center; justify-content: center; border-bottom: 1px solid var(--border-card); }
+        .fallback-emoji { font-size: 3.5rem; }
+        .project-content { padding: 2rem; }
+        .project-content h3 { color: var(--text-primary); margin-bottom: 0.6rem; font-size: 1.4rem; }
+        .project-content p { color: var(--text-tertiary); margin-bottom: 2rem; font-size: 1rem; min-height: 48px; }
+        .download-btn { display: inline-block; background-color: var(--button-bg); color: #ffffff; text-decoration: none; padding: 0.7rem 1.8rem; border-radius: 980px; font-size: 0.9rem; font-weight: 500; transition: all 0.2s; }
         .download-btn:hover { background-color: var(--button-hover); }
-        .download-btn:active { transform: scale(0.96); }
 
-        .badge-link {
-            color: var(--text-tertiary); 
-            text-decoration: none; 
-            padding: 0.8rem 1.5rem; 
-            border: 1px solid var(--border-color); 
-            border-radius: 980px; 
-            transition: all 0.3s;
-        }
-        .badge-link:hover {
-            color: var(--text-primary);
-            border-color: var(--text-tertiary);
-            background-color: var(--border-card);
-        }
+        .badge-link { color: var(--text-tertiary); text-decoration: none; padding: 0.8rem 1.5rem; border: 1px solid var(--border-color); border-radius: 980px; transition: all 0.3s; }
+        .badge-link:hover { color: var(--text-primary); border-color: var(--text-tertiary); background-color: var(--border-card); }
 
-        footer {
-            text-align: center;
-            padding: 4rem 2rem;
-            color: var(--text-tertiary);
-            font-size: 0.9rem;
-            border-top: 1px solid var(--border-color);
-        }
+        footer { text-align: center; padding: 4rem 2rem; color: var(--text-tertiary); font-size: 0.9rem; border-top: 1px solid var(--border-color); }
 
         @media (max-width: 768px) {
             .hero-text h1 { font-size: 2.8rem; }
-            .hero-text p { font-size: 1.15rem; margin-bottom: 2.5rem; }
-            .hero-cta-group { flex-direction: column; gap: 1rem; width: 100%; }
-            .cta-button { width: 100%; text-align: center; }
-            .hero-main-asset { margin-top: 3.5rem; }
+            .hero-text p { font-size: 1.15rem; }
+            .hero-cta-group { flex-direction: column; gap: 1rem; }
             nav ul li:not(:last-child) { display: none; }
         }
     </style>
@@ -434,11 +167,11 @@
 
 <header>
     <nav>
-        <a href="/" class="logo">
+        <a href="index.html" class="logo">
             <svg width="28" height="28" viewBox="0 0 32 32" fill="none" xmlns="http://www.w3.org/2000/svg">
                 <rect width="32" height="32" rx="8" fill="#0071e3"/>
-                <path d="M10 16L14 12L18 16L22 12" stroke="white" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
-                <path d="M10 20L14 16L18 20L22 16" stroke="white" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                <path d="M10 16L14 12L18 16L22 12" stroke="white" stroke-width="2"/>
+                <path d="M10 20L14 16L18 20L22 16" stroke="white" stroke-width="2"/>
                 <circle cx="16" cy="16" r="2" fill="white"/>
             </svg>
             Caleb
@@ -447,10 +180,14 @@
             <li><a href="#about">About</a></li>
             <li><a href="#skills">Skills</a></li>
             <li><a href="#projects">Projects</a></li>
+            <li><a href="calebos.html">CalebOS</a></li>
+            <li><a href="clevisos.html">ClevisOS</a></li>
+            <li><a href="devices.html">Devices</a></li>
+            <li><a href="gamesync.html">GameSync</a></li>
             <li><a href="alliance.html">Alliance</a></li>
             <li><a href="legal.html">Legal</a></li>
             <li>
-                <button id="theme-toggle" class="theme-toggle" aria-label="切换深色/浅色模式">
+                <button id="theme-toggle" class="theme-toggle">
                     <svg class="sun-icon" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor">
                         <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 3v1m0 16v1m9-9h-1M4 12H3m15.364 6.364l-.707-.707M6.343 6.343l-.707-.707m12.728 0l-.707.707M6.343 17.657l-.707.707M16 12a4 4 0 11-8 0 4 4 0 018 0z" />
                     </svg>
@@ -463,188 +200,66 @@
     </nav>
 </header>
 
-    <div class="hero-container">
-        <div class="hero-content">
-            <p class="hero-badge">Introducing Caleb Studio</p>
-            <div class="hero-text">
-                <h1>Digital Creator.<br>Technology Enthusiast.</h1>
-                <p>Engineering high-tier digital assets, advanced 3D models, and next-generation code pipelines in Richmond, Vancouver.</p>
-            </div>
-            <div class="hero-cta-group">
-                <a href="#projects" class="cta-button">View My Work</a>
-                <a href="alliance.html" class="secondary-link">Explore Alliance &rarr;</a>
-            </div>
-            
-            <div class="hero-main-asset">
-                <img src="hero_main.jpg" alt="Caleb Studio Key Asset Showcase" onerror="this.style.display='none';">
-            </div>
+<div class="hero-container">
+    <div class="hero-content">
+        <p class="hero-badge">Introducing Caleb Studio</p>
+        <div class="hero-text">
+            <h1>Digital Creator.<br>Technology Enthusiast.</h1>
+            <p>Engineering high-tier digital assets, advanced 3D models, and next-generation code pipelines in Richmond, Vancouver.</p>
+        </div>
+        <div class="hero-cta-group">
+            <a href="#projects" class="cta-button">View My Work</a>
+            <a href="alliance.html" class="secondary-link">Explore Alliance &rarr;</a>
+        </div>
+        <div class="hero-main-asset">
+            <img src="hero_main.jpg" alt="Caleb Studio Key Asset Showcase" onerror="this.style.display='none';">
         </div>
     </div>
+</div>
 
-    <section id="about">
-        <div class="container">
-            <h2>About Me</h2>
-            <div class="about-content">
-                <p>Hi! I'm Caleb. I am a student from Vancouver & born in Hong Kong & also the founder of the Caleb Studio. I love digital creation, technical development, and taking photos.</p>
-            </div>
+<section id="about">
+    <div class="container">
+        <h2>About Me</h2>
+        <div class="about-content">
+            <p>Hi! I'm Caleb. I am a student from Vancouver & born in Hong Kong & also the founder of the Caleb Studio. I love digital creation, technical development, and taking photos.</p>
         </div>
-    </section>
+    </div>
+</section>
 
-    <section id="skills">
-        <div class="container">
-            <h2>My Skills</h2>
-            <div class="skills-grid">
-                <div class="skill-card">
-                    <h3>Technical Creation</h3>
-                    <p>Asset Modification, Optimization, Configs</p>
-                </div>
-                <div class="skill-card">
-                    <h3>Design & Layout</h3>
-                    <p>UI/UX, Responsive CSS, Graphic Elements</p>
-                </div>
-                <div class="skill-card">
-                    <h3>Tools</h3>
-                    <p>Git, GitHub, VS Code</p>
-                </div>
-            </div>
+<section id="skills">
+    <div class="container">
+        <h2>My Skills</h2>
+        <div class="skills-grid">
+            <div class="skill-card"><h3>Technical Creation</h3><p>Asset Modification, Optimization, Configs</p></div>
+            <div class="skill-card"><h3>Design & Layout</h3><p>UI/UX, Responsive CSS, Graphic Elements</p></div>
+            <div class="skill-card"><h3>Tools</h3><p>Git, GitHub, VS Code</p></div>
         </div>
-    </section>
+    </div>
+</section>
 
-    <section id="projects">
-        <div class="container">
-            <h2>My Projects</h2>
-            <div class="projects-grid">
-                
-                <div class="project-card">
-                    <div class="project-image-box">
-                        <img src="project1.jpg" alt="Project Preview" onerror="this.style.display='none';">
-                        <span class="fallback-emoji">🎵</span>
-                    </div>
-                    <div class="project-content">
-                        <h3>Custom Rhythm Chart</h3>
-                        <p>High-quality chart design with precise timing and custom alignment.</p>
-                        <a href="https://1drv.ms/f/c/15eb311a8dd976a8/IgB6MCJMOB4ORJMpGSWU5XZ4AUeqEgUbjq0U-BG0bBWM6WE?e=3YQZOv" target="_blank" class="download-btn">Download Pack 📥</a>
-                    </div>
-                </div>
-
-                <div class="project-card">
-                    <div class="project-image-box">
-                        <img src="project2.jpg" alt="Asurada 3D Model" onerror="this.style.display='none';">
-                        <span class="fallback-emoji">🏎️</span>
-                    </div>
-                    <div class="project-content">
-                        <h3>Asurada 3D Print Model</h3>
-                        <p>Custom Cyber Formula high-detailed .stl file designed for 3D printing and scaling.</p>
-                        <a href="https://1drv.ms/u/c/15eb311a8dd976a8/IQBh9dIQdxrzS7dIB97zGTdKAZjwAnlO32viZmrH5rzi030?e=5Dd1Ef" target="_blank" class="download-btn">Download STL 📥</a>
-                    </div>
-                </div>
-
-                <div class="project-card">
-                    <div class="project-image-box">
-                        <img src="project3.jpg" alt="Ala Mobile Livery" onerror="this.style.display='none';">
-                        <span class="fallback-emoji">🎮</span>
-                    </div>
-                    <div class="project-content">
-                        <h3>Ala Mobile Liveries</h3>
-                        <p>Custom racing team liveries, sponsor decals, and high-quality skin configurations.</p>
-                        <a href="https://1drv.ms/f/c/15eb311a8dd976a8/IgCh5JA_STW_Qqt7fe0YkZTxATIZiY-i-r4xv_H4l7MfvHg?e=EYhQpm" target="_blank" class="download-btn">Download Skins 📥</a>
-                    </div>
-                </div>
-
-                <div class="project-card">
-                    <div class="project-image-box">
-                        <img src="project4.jpg" alt="My Photography" onerror="this.style.display='none';">
-                        <span class="fallback-emoji">📸</span>
-                    </div>
-                    <div class="project-content">
-                        <h3>My Photography</h3>
-                        <p>Explore high-quality captures, urban framing, and visual asset collections.</p>
-                        <a href="gallery.html" target="_blank" class="download-btn">View Gallery 👁️</a>
-                    </div>
-                </div>
-
-                <div class="project-card">
-                    <div class="project-image-box">
-                        <img src="app_cover.jpg" alt="TJA Chart Editor" onerror="this.style.display='none';">
-                        <span class="fallback-emoji">🥁</span>
-                    </div>
-                    <div class="project-content">
-                        <h3>TJA Chart Editor</h3>
-                        <p>Real-time Taiko chart editor — drag & drop MP3, create charts instantly. No installation required.</p>
-                        <div style="display: flex; gap: 1rem; align-items: center; flex-wrap: wrap;">
-                            <a href="https://v0-calebstudiomp3tjaconverter.vercel.app/" target="_blank" class="download-btn" style="background-color: var(--button-bg);">
-                                🥁 Open Editor
-                            </a>
-                            <a href="app.html" style="color: var(--link-color); text-decoration: none; font-size: 0.85rem;">
-                                Learn More →
-                            </a>
-                        </div>
-                    </div>
-                </div>
-
-                <!-- GameSync 项目卡片 -->
-                <div class="project-card">
-                    <div class="project-image-box">
-                        <img src="gamesync_cover.jpg" alt="GameSync Hub" onerror="this.style.display='none';">
-                        <span class="fallback-emoji">🎮</span>
-                    </div>
-                    <div class="project-content">
-                        <h3>GameSync Hub</h3>
-                        <p>Your hub for Ala Mobile setups & Taiko TJA charts. Free downloads, premium upgrades coming soon.</p>
-                        <div style="display: flex; gap: 1rem; align-items: center; flex-wrap: wrap;">
-                            <a href="gamesync.html" class="download-btn" style="background-color: var(--button-bg);">
-                                🎮 Explore Hub
-                            </a>
-                            <a href="gamesync.html#premium" style="color: var(--link-color); text-decoration: none; font-size: 0.85rem;">
-                                Premium Preview →
-                            </a>
-                        </div>
-                    </div>
-                </div>
-
-            </div>
+<section id="projects">
+    <div class="container">
+        <h2>My Projects</h2>
+        <div class="projects-grid">
+            <div class="project-card"><div class="project-image-box"><span class="fallback-emoji">🎵</span></div><div class="project-content"><h3>Custom Rhythm Chart</h3><p>High-quality chart design with precise timing and custom alignment.</p><a href="#" class="download-btn">Download Pack 📥</a></div></div>
+            <div class="project-card"><div class="project-image-box"><span class="fallback-emoji">🏎️</span></div><div class="project-content"><h3>Asurada 3D Print Model</h3><p>Custom Cyber Formula high-detailed .stl file for 3D printing.</p><a href="#" class="download-btn">Download STL 📥</a></div></div>
+            <div class="project-card"><div class="project-image-box"><span class="fallback-emoji">🎮</span></div><div class="project-content"><h3>Ala Mobile Liveries</h3><p>Custom racing team liveries, sponsor decals, and high-quality skins.</p><a href="#" class="download-btn">Download Skins 📥</a></div></div>
         </div>
-    </section>
+    </div>
+</section>
 
-    <section id="allies" style="background-color: var(--bg-secondary); padding: 4rem 2rem; border-top: 1px solid var(--border-color);">
-        <div class="container" style="text-align: center;">
-            <h2 style="margin-bottom: 2rem;">My Allies</h2>
-            <div style="display: flex; gap: 1.5rem; justify-content: center; flex-wrap: wrap;">
-                <a href="https://chasemcdillan.github.io/" target="_blank" class="badge-link">Clevis Liu</a>
-                <a href="https://chasemcdillan.github.io/" target="_blank" class="badge-link">Chase McDillan</a>
-            </div>
-        </div>
-    </section>
+<footer>
+    <p>&copy; 2026 Caleb's Studio. All rights reserved.</p>
+</footer>
 
-    <section id="supporters" style="background-color: var(--bg-secondary); padding: 4rem 2rem; border-top: 1px solid var(--border-color);">
-        <div class="container" style="text-align: center;">
-            <h2 style="margin-bottom: 2rem;">Supporters</h2>
-            <div style="display: flex; gap: 1.5rem; justify-content: center; flex-wrap: wrap;">
-                <a href="https://www.eki-net.com/Personal/Top/Index/" target="_blank" class="badge-link">JR EAST RAILWAY COMPANY (Eki net)</a>
-                <a href="https://www.jreast.co.jp/" target="_blank" class="badge-link">JR EAST RAILWAY COMPANY</a>
-                <a href="https://www.jrhokkaido.co.jp/" target="_blank" class="badge-link">JR HOKKAIDO RAILWAY COMPANY</a>
-                <a href="https://www.westjr.co.jp/" target="_blank" class="badge-link">JR WEST RAILWAY COMPANY</a>
-                <a href="https://www.mtr.com.hk/" target="_blank" class="badge-link">MTR</a>
-                <a href="https://www.sunrise-inc.co.jp/" target="_blank" class="badge-link">Sunrise</a>
-            </div>
-        </div>
-    </section>
-
-    <footer>
-        <p>&copy; 2026 Caleb's Studio. All rights reserved.</p>
-    </footer>
-
-    <script>
-        const themeToggle = document.getElementById('theme-toggle');
-        const savedTheme = localStorage.getItem('theme');
-        if (savedTheme === 'light') {
-            document.body.classList.add('light-mode');
-        }
-        themeToggle.addEventListener('click', () => {
-            document.body.classList.toggle('light-mode');
-            localStorage.setItem('theme', document.body.classList.contains('light-mode') ? 'light' : 'dark');
-        });
-    </script>
-
+<script>
+    const themeToggle = document.getElementById('theme-toggle');
+    const savedTheme = localStorage.getItem('theme');
+    if (savedTheme === 'light') document.body.classList.add('light-mode');
+    themeToggle.addEventListener('click', () => {
+        document.body.classList.toggle('light-mode');
+        localStorage.setItem('theme', document.body.classList.contains('light-mode') ? 'light' : 'dark');
+    });
+</script>
 </body>
 </html>
